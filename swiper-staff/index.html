@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="frameworkStyle.css">
+  <link rel="stylesheet" href="style.css">
+  <title>swiper</title>
+</head>
+
+<body>
+  <div class="swiper staff__swiper staff__mySwiper">
+    <div class="staff__swiper-box">
+      <div class="staff__swiper-button swiper-button-prev staff__swiper-button-prev"></div>
+      <div class="staff__swiper-button swiper-button-next staff__swiper-button-next"></div>
+    </div>
+
+    <div class="swiper-wrapper staff__swiper-wrapper">
+      <div class="swiper-slide staff__swiper-slide">
+        <div class="member col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="200ms"
+          style="width:100% !important;z-index: 0 !important;">
+          <div class="member-image" style="z-index: 0 !important;">
+            <a href="/view-team.php?id=2"><img src="/img/65186ec8b0d4e.jpg" alt="img"
+                style="width:310px; z-index: 0 !important; height:380px; object-fit:cover;"></a>
+          </div>
+          <a href="/view-team.php?id=2">
+            <h3>111Шевченко Анна Сергеевна</h3>
+          </a>
+          <span>Директор департамента целостности данных</span>
+        </div>
+      </div>
+      <div class="swiper-slide staff__swiper-slide">
+        <div class="member col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="200ms"
+          style="width:100% !important;z-index: 0 !important;">
+          <div class="member-image" style="z-index: 0 !important;">
+            <a href="/view-team.php?id=2"><img src="/img/651871c314f22.jpg" alt="img"
+                style="width:310px; z-index: 0 !important; height:380px; object-fit:cover;"></a>
+          </div>
+          <a href="/view-team.php?id=2">
+            <h3>222Шевченко Анна Сергеевна</h3>
+          </a>
+          <span>Директор департамента целостности данных</span>
+        </div>
+      </div>
+      <div class="swiper-slide staff__swiper-slide">
+        <div class="member col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="200ms"
+          style="width:100% !important;z-index: 0 !important;">
+          <div class="member-image" style="z-index: 0 !important;">
+            <a href="/view-team.php?id=2"><img src="/img/65186ec8b0d4e.jpg" alt="img"
+                style="width:310px; z-index: 0 !important; height:380px; object-fit:cover;"></a>
+          </div>
+          <a href="/view-team.php?id=2">
+            <h3>111Шевченко Анна Сергеевна</h3>
+          </a>
+          <span>Директор департамента целостности данных</span>
+        </div>
+      </div>
+      <div class="swiper-slide staff__swiper-slide">
+        <div class="member col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="200ms"
+          style="width:100% !important;z-index: 0 !important;">
+          <div class="member-image" style="z-index: 0 !important;">
+            <a href="/view-team.php?id=2"><img src="/img/65186ec8b0d4e.jpg" alt="img"
+                style="width:310px; z-index: 0 !important; height:380px; object-fit:cover;"></a>
+          </div>
+          <a href="/view-team.php?id=2">
+            <h3>111Шевченко Анна Сергеевна</h3>
+          </a>
+          <span>Директор департамента целостности данных</span>
+        </div>
+      </div>
+      <div class="swiper-slide staff__swiper-slide">
+        <div class="member col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="200ms"
+          style="width:100% !important;z-index: 0 !important;">
+          <div class="member-image" style="z-index: 0 !important;">
+            <a href="/view-team.php?id=2"><img src="/img/65186ec8b0d4e.jpg" alt="img"
+                style="width:310px; z-index: 0 !important; height:380px; object-fit:cover;"></a>
+          </div>
+          <a href="/view-team.php?id=2">
+            <h3>111Шевченко Анна Сергеевна</h3>
+          </a>
+          <span>Директор департамента целостности данных</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".staff__mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 60,
+      freeMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        // when window width is >= 480px
+        991: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }
+    });
+  </script>
+
+</body>
+
+</html>
