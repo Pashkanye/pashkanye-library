@@ -1,3 +1,7 @@
+:root {
+  --animation-time: 15s;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -7,64 +11,106 @@
   overflow: hidden;
 }
 
+.glow1 {
+  position: absolute;
+  top: 219px;
+  left: 200px;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  /*   background-color: #fff; */
+  box-shadow:
+    0 0 620px 100px #BFBFBF;
+}
+
+.glow2 {
+  position: absolute;
+  top: 622px;
+  left: 1580px;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  /*   background-color: #fff; */
+  box-shadow:
+    0 0 620px 100px #BFBFBF;
+}
+
 .animation-block {
   position: absolute;
-  left: 1500px;
-  top: 100px;
-  /* width: 1331px;
-  height: 754px; */
-  animation: zoomInZoomOut 10s infinite;
+  left: 675px;
+  top: 0px;
+  width: 1331px;
+  height: 754px;
+  animation: zoomInZoomOut var(--animation-time) infinite;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 @keyframes zoomInZoomOut {
 
   0% {
-    transform: scale(18.4, 20.6);
+    transform: scale(5.0, 5.0);
+    left: 675px;
+    top: 200px;
   }
 
   12.5% {
-    transform: scale(0.9, 1.5);
+    transform: scale(2.0, 2.0);
+    left: 820px;
+    top: 200px;
   }
 
   25% {
-    transform: scale(18.4, 20.6);
+    transform: scale(2.0, 2.0);
+    left: 820px;
+    top: 200px;
   }
 
   37.5% {
-    transform: scale(18.4, 20.6);
+    transform: scale(1.0, 1.0);
+    left: 820px;
+    top: 200px;
   }
 
   50% {
-    transform: scale(18.4, 20.6);
+    transform: scale(1.0, 1.0);
+    left: 820px;
+    top: 200px;
   }
 
   62.5% {
-    transform: scale(2.4, 3.4);
+    transform: scale(3.0, 3.0);
+    left: 820px;
+    top: 200px;
   }
 
   75% {
-    transform: scale(2.4, 3.4);
+    transform: scale(3.0, 3.0);
+    left: 820px;
+    top: 200px;
   }
 
   87.5% {
-    transform: scale(2.4, 3.4);
+    transform: scale(3.0, 3.0);
+    left: 820px;
+    top: 200px;
   }
 
   100% {
-    transform: scale(18.4, 20.6);
+    transform: scale(5.0, 5.0);
+    left: 675px;
+    top: 200px;
   }
 }
 
 .animation {
-  width: 1331px;
-  height: 754px;
+  width: 100%;
+  height: 100%;
   background-image: url(/img/abstract.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: spin 10s;
-  animation-duration: 10s;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
+  animation: spin var(--animation-time) infinite;
+  opacity: 0.33;
 }
 
 @keyframes spin {
