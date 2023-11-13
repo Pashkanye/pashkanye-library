@@ -17,14 +17,15 @@ body {
 }
 
 .review__swiper {
-  width: 1140px;
+  max-width: 1140px;
+  user-select: none;
 }
 
 .review__swiper-slide {
   display: flex;
   justify-content: space-between;
   width: 1140px;
-  height: 400px;
+  min-height: 400px;
   background: #E2E2E2;
   border-radius: 15px;
   /* height: 100px; */
@@ -67,7 +68,7 @@ body {
   max-width: 665px;
   overflow: scroll;
   overflow-x: hidden;
-  max-height: 100%;
+  max-height: 400px;
   background: #171717;
   border-radius: 15px;
 }
@@ -120,11 +121,11 @@ body {
   .review__swiper-slide {
     flex-direction: column;
     width: 940px;
-    height: 800px;
+    max-height: 800px;
   }
 
   .review__swiper-left-side {
-    height: 400px;
+    min-height: 400px;
   }
 
   .review__swiper-right-side {
@@ -153,16 +154,21 @@ body {
 
   .review__swiper-slide {
     width: 100%;
-
+    min-height: fit-content;
     display: block;
   }
 
   .review__swiper-left-side {
-    height: fit-content;
+    min-height: fit-content;
+    padding: 20px;
+  }
+
+  .slide-text {
+    padding: 20px;
   }
 
   .review__swiper-right-side {
-    height: 400px;
+    max-height: 400px;
     max-width: 100%;
   }
 
