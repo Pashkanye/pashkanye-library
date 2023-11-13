@@ -1,5 +1,5 @@
 :root {
-  --animation-time: 15s;
+  --animation-time: 50s;
 }
 
 .hero {
@@ -37,7 +37,7 @@
 
 .animation-block {
   position: absolute;
-  left: 675px;
+  left: 0px;
   top: 0px;
   width: 1331px;
   height: 754px;
@@ -49,50 +49,50 @@
 @keyframes zoomInZoomOut {
 
   0% {
-    transform: scale(5.0, 5.0);
-    left: 675px;
-    top: 200px;
+    transform: scale(10, 10);
+    left: 50%;
+    top: 10%;
   }
 
   12.5% {
-    transform: scale(2.0, 2.0);
-    left: 820px;
-    top: 200px;
+    transform: scale(5, 5);
+    left: 20%;
+    top: 20%;
   }
 
   25% {
-    transform: scale(2.0, 2.0);
-    left: 820px;
-    top: 200px;
+    transform: scale(5, 5);
+    left: 20%;
+    top: 20%;
   }
 
   37.5% {
-    transform: scale(1.0, 1.0);
-    left: 820px;
-    top: 200px;
+    transform: scale(1.5, 1.5);
+    left: 20%;
+    top: -15%;
   }
 
   50% {
     transform: scale(1.0, 1.0);
-    left: 820px;
+    left: 420px;
     top: 200px;
   }
 
   62.5% {
     transform: scale(3.0, 3.0);
-    left: 820px;
+    left: 420px;
     top: 200px;
   }
 
   75% {
     transform: scale(3.0, 3.0);
-    left: 820px;
+    left: 420px;
     top: 200px;
   }
 
   87.5% {
     transform: scale(3.0, 3.0);
-    left: 820px;
+    left: 420px;
     top: 200px;
   }
 
@@ -106,32 +106,32 @@
 .animation {
   width: 100%;
   height: 100%;
-  background-image: url(/img/abstract.png);
+  background-image: url(/img/abstract3.png);
   background-size: contain;
   background-repeat: no-repeat;
   animation: spin var(--animation-time) infinite;
-  opacity: 0.33;
+  opacity: 1;
 }
 
 @keyframes spin {
   0% {
-    transform: rotate(-63deg);
+    transform: rotate(0deg);
   }
 
   12.5% {
-    transform: rotate(2deg);
+    transform: rotate(-45deg);
   }
 
   25% {
-    transform: rotate(2deg);
+    transform: rotate(-45deg);
   }
 
   37.5% {
-    transform: rotate(2deg);
+    transform: rotate(-5deg);
   }
 
   50% {
-    transform: rotate(2deg);
+    transform: rotate(-5deg);
   }
 
   62.5% {
