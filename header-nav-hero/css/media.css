@@ -1,0 +1,40 @@
+@media (max-width: 992px) {
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__burger {
+    position: relative;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: #3172B9;
+  }
+
+  .header__burger-line {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    border-radius: inherit;
+    background-color: currentColor;
+    transform: translateX(-50%);
+  }
+
+  .header__burger-line:nth-child(1) {
+    top: 13px;
+  }
+
+  .header__burger-line:nth-child(2) {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .header__burger-line:nth-child(3) {
+    bottom: 13px;
+  }
+
+}
