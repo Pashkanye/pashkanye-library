@@ -6,6 +6,13 @@ body {
   margin: 0;
 }
 
+.btn-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
 :root {
   --animation-time: 50s;
 }
@@ -20,11 +27,13 @@ body {
 }
 
 .hero__content-block {
+  z-index: 2;
   padding: 120px 0 120px 360px;
   color: #FFF;
 }
 
 .hero__title {
+  padding-bottom: 60px;
   max-width: 1010px;
   font-size: 55px;
   font-style: normal;
@@ -37,6 +46,48 @@ body {
   font-size: 45px;
   font-weight: 300;
   line-height: 110%;
+}
+
+.hero__descr {
+  max-width: 500px;
+  padding-bottom: 80px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.btn {
+  padding: 15px 40px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  border-radius: 5px;
+  background-color: #FFF;
+  color: #171717;
+  cursor: pointer;
+}
+
+.hero__connect-button {
+  margin-right: 25px;
+}
+
+.hero__connect-button:hover {
+  background-color: #535961;
+  color: #FFF;
+}
+
+.hero__connect-button:active {
+  background-color: #FFF;
+  color: #171717;
+}
+
+.hero__services-button {
+  padding: 10px 40px;
+  background-color: transparent;
+  color: #FFF;
+  border: 2px solid #FFF;
 }
 
 .glow1 {
@@ -61,8 +112,9 @@ body {
     0 0 620px 60px #BFBFBF;
 }
 
-.animation-block {
+/* .animation-block {
   position: absolute;
+  z-index: 0;
   left: 0px;
   top: 0px;
   width: 1331px;
@@ -175,4 +227,4 @@ body {
   100% {
     transform: rotate(-63deg);
   }
-}
+} */
