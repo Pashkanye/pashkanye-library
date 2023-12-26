@@ -1,3 +1,11 @@
+h1 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
 :root {
   --animation-time: 50s;
 }
@@ -6,9 +14,29 @@
   position: relative;
   width: 100%;
   height: 700px;
+  font-family: "Source Sans Pro", "Arial", sans-serif;
   background-color: #171717;
-  border-radius: 50px;
   overflow: hidden;
+}
+
+.hero__content-block {
+  padding: 120px 0 120px 360px;
+  color: #FFF;
+}
+
+.hero__title {
+  max-width: 1010px;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.hero__title-span {
+  font-size: 45px;
+  font-weight: 300;
+  line-height: 110%;
 }
 
 .glow1 {
@@ -19,7 +47,7 @@
   height: 0px;
   border-radius: 50%;
   box-shadow:
-    0 0 620px 100px #BFBFBF;
+    0 0 620px 60px #BFBFBF;
 }
 
 .glow2 {
@@ -29,9 +57,8 @@
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  /*   background-color: #fff; */
   box-shadow:
-    0 0 620px 100px #BFBFBF;
+    0 0 620px 60px #BFBFBF;
 }
 
 .animation-block {
