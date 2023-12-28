@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+.space-after {
+  margin-bottom: 1000px;
+}
+
 .btn-reset {
   border: none;
   margin: 0;
@@ -27,7 +31,8 @@ body {
 }
 
 .hero__content-block {
-  z-index: 2;
+  position: relative;
+  z-index: 1;
   padding: 120px 0 120px 360px;
   color: #FFF;
 }
@@ -112,13 +117,28 @@ body {
     0 0 620px 60px #BFBFBF;
 }
 
-/* .animation-block {
+/* .hero-animation {
+  background-image: url(./img/abstr.svg);
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 100%;
+  background-size: 70%;
+  animation: zoomInZoomOut var(--animation-time) infinite;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+} */
+
+.hero::before {
+  content: "";
   position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
   z-index: 0;
-  left: 0px;
-  top: 0px;
-  width: 1331px;
-  height: 754px;
+  background: url(./img/abstr.svg);
+  background-repeat: no-repeat;
+  /* background-size: contain; */
   animation: zoomInZoomOut var(--animation-time) infinite;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -127,104 +147,56 @@ body {
 @keyframes zoomInZoomOut {
 
   0% {
-    transform: scale(10, 10);
-    left: 50%;
-    top: 10%;
+    transform: scale(1000%, 1000%) rotate(0deg);
+    top: -10%;
+    left: 10%;
   }
 
   12.5% {
-    transform: scale(5, 5);
-    left: 20%;
-    top: 20%;
+    transform: scale(100%, 100%) rotate(50deg);
+    top: -20%;
+    left: 0%;
   }
 
   25% {
-    transform: scale(5, 5);
-    left: 20%;
+    transform: scale(100%, 100%) rotate(0deg);
     top: 20%;
-  }
-
-  37.5% {
-    transform: scale(1.5, 1.5);
     left: 20%;
-    top: -15%;
-  }
-
-  50% {
-    transform: scale(1.0, 1.0);
-    left: 420px;
-    top: 200px;
-  }
-
-  62.5% {
-    transform: scale(3.0, 3.0);
-    left: 420px;
-    top: 200px;
-  }
-
-  75% {
-    transform: scale(3.0, 3.0);
-    left: 420px;
-    top: 200px;
-  }
-
-  87.5% {
-    transform: scale(3.0, 3.0);
-    left: 420px;
-    top: 200px;
-  }
-
-  100% {
-    transform: scale(5.0, 5.0);
-    left: 675px;
-    top: 200px;
-  }
-}
-
-.animation {
-  width: 100%;
-  height: 100%;
-  background-image: url(/img/abstract3.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: spin var(--animation-time) infinite;
-  opacity: 1;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  12.5% {
-    transform: rotate(-45deg);
-  }
-
-  25% {
-    transform: rotate(-45deg);
   }
 
   37.5% {
-    transform: rotate(-5deg);
+    transform: scale(200%, 100%) rotate(0deg);
+    top: 20%;
+    left: -15%;
   }
 
   50% {
-    transform: rotate(-5deg);
+    transform: scale(100%, 200%) rotate(0deg);
+    top: 50%;
+    left: 10%;
   }
 
   62.5% {
-    transform: rotate(-127deg);
+    transform: scale(200%, 100%) rotate(0deg);
+    top: 50%;
+    left: 10%;
   }
 
   75% {
-    transform: rotate(-173deg);
+    transform: scale(100%, 100%) rotate(0deg);
+    top: 50%;
+    left: 10%;
   }
 
   87.5% {
-    transform: rotate(68deg);
+    transform: scale(100%, 100%) rotate(0deg);
+    top: 50%;
+    left: 10%;
   }
 
   100% {
-    transform: rotate(-63deg);
+    transform: scale(100%, 100%) rotate(0deg);
+    top: -10%;
+    left: 10%;
   }
-} */
+}
