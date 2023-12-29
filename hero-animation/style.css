@@ -138,7 +138,7 @@ body {
   z-index: 0;
   background: url(./img/abstr.svg);
   background-repeat: no-repeat;
-  /* background-size: contain; */
+  background-size: contain;
   animation: zoomInZoomOut var(--animation-time) infinite;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -147,19 +147,19 @@ body {
 @keyframes zoomInZoomOut {
 
   0% {
-    transform: scale(1000%, 1000%) rotate(0deg);
+    transform: scale(200%, 200%) rotate(-30deg);
     top: -10%;
-    left: 10%;
+    left: 20%;
   }
 
   12.5% {
-    transform: scale(100%, 100%) rotate(50deg);
-    top: -20%;
-    left: 0%;
+    transform: scale(350%, 350%) rotate(-80deg);
+    top: -110%;
+    left: 10%;
   }
 
   25% {
-    transform: scale(100%, 100%) rotate(0deg);
+    transform: scale(100%, 100%) rotate(-110deg);
     top: 20%;
     left: 20%;
   }
@@ -195,7 +195,7 @@ body {
   }
 
   100% {
-    transform: scale(100%, 100%) rotate(0deg);
+    transform: scale(100%, 100%) rotate(-360deg);
     top: -10%;
     left: 10%;
   }
