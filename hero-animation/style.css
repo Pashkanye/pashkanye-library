@@ -18,7 +18,8 @@ body {
 }
 
 :root {
-  --animation-time: 50s;
+  --animation-time: 40s;
+  --opacity-time: 3s;
 }
 
 .hero {
@@ -35,6 +36,24 @@ body {
   z-index: 1;
   padding: 120px 0 120px 360px;
   color: #FFF;
+  opacity: 0;
+  animation: opacity-title var(--opacity-time) forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes opacity-title {
+
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .hero__title {
@@ -63,6 +82,7 @@ body {
 }
 
 .btn {
+  width: 227px;
   padding: 15px 40px;
   font-size: 16px;
   font-style: normal;
@@ -89,32 +109,41 @@ body {
 }
 
 .hero__services-button {
-  padding: 10px 40px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 15px 40px;
+  padding-right: 64px;
   background-color: transparent;
   color: #FFF;
   border: 2px solid #FFF;
 }
 
+.button-arrow {
+  position: absolute;
+  left: 150px;
+  top: 30%;
+}
+
 .glow1 {
   position: absolute;
-  top: 219px;
-  left: 200px;
+  top: 119px;
+  left: 100px;
   width: 0px;
   height: 0px;
   border-radius: 50%;
   box-shadow:
-    0 0 620px 60px #BFBFBF;
+    0 0 720px 70px #BFBFBF;
 }
 
 .glow2 {
   position: absolute;
-  top: 622px;
+  top: 522px;
   left: 1580px;
   width: 0px;
   height: 0px;
   border-radius: 50%;
   box-shadow:
-    0 0 620px 60px #BFBFBF;
+    0 0 920px 70px #BFBFBF;
 }
 
 /* .hero-animation {
@@ -141,62 +170,118 @@ body {
   background-size: contain;
   animation: zoomInZoomOut var(--animation-time) infinite;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 @keyframes zoomInZoomOut {
 
   0% {
-    transform: scale(200%, 200%) rotate(-30deg);
+    transform: scale(300%) rotate(0deg);
     top: -10%;
-    left: 20%;
+    left: 10%;
   }
 
   12.5% {
-    transform: scale(350%, 350%) rotate(-80deg);
-    top: -110%;
+    transform: scale(100%) rotate(-30deg);
+    top: -10%;
     left: 10%;
   }
 
-  25% {
-    transform: scale(100%, 100%) rotate(-110deg);
-    top: 20%;
-    left: 20%;
+  20% {
+    transform: scale(150%) rotate(10deg);
+    top: 0%;
+    left: 0%;
   }
 
-  37.5% {
-    transform: scale(200%, 100%) rotate(0deg);
-    top: 20%;
-    left: -15%;
+  27.5% {
+    transform: scale(300%) rotate(-50deg);
+    top: -120%;
+    left: 15%;
   }
 
   50% {
-    transform: scale(100%, 200%) rotate(0deg);
-    top: 50%;
-    left: 10%;
+    transform: scale(250%) rotate(-90deg);
+    top: -110%;
+    left: 20%;
   }
 
   62.5% {
-    transform: scale(200%, 100%) rotate(0deg);
-    top: 50%;
-    left: 10%;
+    transform: scale(200%) rotate(-50deg);
+    top: -70%;
+    left: 20%;
   }
 
-  75% {
-    transform: scale(100%, 100%) rotate(0deg);
-    top: 50%;
-    left: 10%;
+  72% {
+    transform: scale(300%) rotate(-150deg);
+    top: -30%;
+    left: -40%;
   }
 
-  87.5% {
-    transform: scale(100%, 100%) rotate(0deg);
-    top: 50%;
-    left: 10%;
+  90% {
+    transform: scale(300%) rotate(-230deg);
+    top: -30%;
+    left: -20%;
+  }
+
+  97% {
+    transform: scale(450%) rotate(-100deg);
+    top: -5%;
+    left: 0%;
   }
 
   100% {
-    transform: scale(100%, 100%) rotate(-360deg);
+    transform: scale(300%) rotate(0deg);
     top: -10%;
     left: 10%;
+  }
+}
+
+@media (max-width: 769px) {
+
+  .hero {
+    max-height: 628px;
+  }
+
+  .hero::before {
+    background-size: 90%;
+    background-position-y: 110%;
+    background-position-x: -150%;
+  }
+
+  .hero__content-block {
+    padding: 80px 15px;
+  }
+
+  .hero__title {
+    max-width: 290px;
+    padding-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .hero__title-span {
+    max-width: 290px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 110%;
+  }
+
+  .hero__descr {
+    max-width: 290px;
+    padding-bottom: 60px;
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .btn {
+    width: 227px;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #171717;
+    cursor: pointer;
   }
 }
