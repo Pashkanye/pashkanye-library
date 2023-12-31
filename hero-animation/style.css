@@ -18,14 +18,14 @@ body {
 }
 
 :root {
-  --animation-time: 40s;
-  --opacity-time: 3s;
+  --animation-time: 10s;
+  --opacity-time: 4s;
 }
 
 .hero {
   position: relative;
   width: 100%;
-  height: 700px;
+  max-height: 754px;
   font-family: "Source Sans Pro", "Arial", sans-serif;
   background-color: #171717;
   overflow: hidden;
@@ -47,7 +47,7 @@ body {
     opacity: 0;
   }
 
-  50% {
+  40% {
     opacity: 0;
   }
 
@@ -67,6 +67,8 @@ body {
 }
 
 .hero__title-span {
+  display: block;
+  margin-bottom: 8px;
   font-size: 45px;
   font-weight: 300;
   line-height: 110%;
@@ -75,6 +77,7 @@ body {
 .hero__descr {
   max-width: 500px;
   padding-bottom: 80px;
+  margin: 0;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -96,6 +99,7 @@ body {
 
 .hero__connect-button {
   margin-right: 25px;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .hero__connect-button:hover {
@@ -115,13 +119,40 @@ body {
   padding-right: 64px;
   background-color: transparent;
   color: #FFF;
+  fill: #FFF;
   border: 2px solid #FFF;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.hero__services-button path {
+  fill: #FFF;
+  transition: fill 0.2s ease-in-out;
+}
+
+.hero__services-button:hover {
+  border-color: #535961;
+  color: #535961;
+}
+
+.hero__services-button:hover path {
+  fill: #535961;
+  transition: fill 0.2s ease-in-out;
+}
+
+.hero__services-button:active {
+  border-color: #FFF;
+  color: #FFF;
+}
+
+.hero__services-button:active path {
+  fill: #FFF;
+  transition: fill 0.2s ease-in-out;
 }
 
 .button-arrow {
   position: absolute;
-  left: 150px;
   top: 30%;
+  padding-left: 10px;
 }
 
 .glow1 {
@@ -168,7 +199,7 @@ body {
   background: url(./img/abstr.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  animation: zoomInZoomOut var(--animation-time) infinite;
+  animation: zoomInZoomOut var(--animation-time) forwards;
   animation-timing-function: ease-in-out;
   will-change: transform;
 }
@@ -239,49 +270,117 @@ body {
 @media (max-width: 769px) {
 
   .hero {
-    max-height: 628px;
+    /* max-height: 628px; */
   }
 
   .hero::before {
     background-size: 90%;
-    background-position-y: 110%;
-    background-position-x: -150%;
+    background-position-y: 100%;
+    background-position-x: -40%;
+  }
+
+  @keyframes zoomInZoomOut {
+
+    0% {
+      transform: scale(300%) rotate(0deg);
+      top: 0%;
+      left: 10%;
+    }
+
+    12.5% {
+      transform: scale(250%) rotate(-30deg);
+      top: -40%;
+      left: -60%;
+    }
+
+    20% {
+      transform: scale(450%) rotate(-60deg);
+      top: -40%;
+      left: -140%;
+    }
+
+    27.5% {
+      transform: scale(300%) rotate(-130deg);
+      top: 40%;
+      left: -140%;
+    }
+
+    50% {
+      transform: scale(250%) rotate(-190deg);
+      top: 80%;
+      left: 0%;
+    }
+
+    62.5% {
+      transform: scale(550%) rotate(-240deg);
+      top: 80%;
+      left: 180%;
+    }
+
+    72% {
+      transform: scale(650%) rotate(-260deg);
+      top: 110%;
+      left: 280%;
+    }
+
+    90% {
+      transform: scale(450%) rotate(-300deg);
+      top: -80%;
+      left: 180%;
+    }
+
+    /* 97% {
+      transform: scale(450%) rotate(-100deg);
+      top: -5%;
+      left: 0%;
+    } */
+
+    100% {
+      transform: scale(300%) rotate(-390deg);
+      top: -60%;
+      left: -50%;
+    }
   }
 
   .hero__content-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 80px 15px;
   }
 
   .hero__title {
-    max-width: 290px;
+    max-width: 100%;
     padding-bottom: 40px;
     font-size: 20px;
   }
 
   .hero__title-span {
-    max-width: 290px;
+    display: block;
+    max-width: 100%;
+    margin-bottom: 8px;
     font-size: 20px;
     font-weight: 300;
     line-height: 110%;
   }
 
   .hero__descr {
-    max-width: 290px;
+    max-width: 100%;
     padding-bottom: 60px;
     font-size: 16px;
     line-height: 110%;
   }
 
   .btn {
-    width: 227px;
+    width: 100%;
     padding: 15px 40px;
+    margin: 0;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
     line-height: 120%;
-    border-radius: 5px;
-    background-color: #FFF;
-    color: #171717;
-    cursor: pointer;
+  }
+
+  .hero__connect-button {
+    margin-bottom: 10px;
   }
 }
