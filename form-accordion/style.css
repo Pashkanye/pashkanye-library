@@ -19,7 +19,7 @@ a {
 .quiz {
   background-image: url(./img/background-img.svg);
   background-repeat: no-repeat;
-  background-position: 100% 40%;
+  background-position: top -50px right;
 }
 
 .container {
@@ -59,7 +59,7 @@ a {
 }
 
 .quiz__subtitle {
-  padding-left: 15px;
+  padding: 10px 15px;
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 600;
@@ -70,6 +70,7 @@ a {
 
 .quiz__form-text {
   padding-left: 15px;
+  margin-bottom: 30px;
   font-size: 16px;
   line-height: 120%;
   color: #585B5E;
@@ -104,4 +105,8 @@ a {
 .quiz__contacts-info {
   font-weight: 400;
   color: #585B5E;
+}
+
+.quiz__contacts-container {
+  margin-bottom: 150px;
 }
