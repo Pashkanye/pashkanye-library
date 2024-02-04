@@ -239,22 +239,18 @@
     </div>
   </div>
 
-  <script>
-    var acc = document.getElementsByClassName("form__accordion");
-    var i;
+  <!-- <script>
+    document.querySelectorAll('.form__accordion').forEach((el) => {
+      el.addEventListener('click', () => {
 
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
-    }
-  </script>
+        let content = el.nextElementSibling;
+
+        console.log(content)
+
+      })
+
+    })
+  </script> -->
 
 </body>
 
