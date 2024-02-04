@@ -12,8 +12,18 @@ select {
   font: inherit;
 }
 
+.reset-list,
+.reset-list li,
+.reset-list ul li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 .quiz {
@@ -84,6 +94,7 @@ a {
 .form__status-choice-container {
   display: flex;
   gap: 20px;
+  margin-bottom: 40px;
 }
 
 .form__radio-choice {
@@ -142,4 +153,123 @@ a {
 
 .quiz__contacts-container {
   margin-bottom: 150px;
+}
+
+.form__content-container {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 40px;
+}
+
+.form__pacient-status-container {
+  display: none;
+}
+
+.form__specialist-status-container-1 {
+  display: none;
+}
+
+.form__specialist-status-container-2 {
+  display: none;
+}
+
+.form__specialist-status-container-3 {
+  display: none;
+}
+
+.form__list {
+  width: calc(100% / 2 - 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.form__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__list-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+
+.form__container-flex {
+  display: flex;
+  padding-top: 12px;
+  gap: 30px;
+  height: 22px;
+  align-content: center;
+}
+
+.form__container-flex:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.form__label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  color: #171717;
+  vertical-align: middle;
+}
+
+.form__radio-label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.form__input:focus {
+  outline: none;
+}
+
+.form__input-text {
+  height: 29px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  border: none;
+  border-bottom: 1px solid #171717;
+}
+
+.form__input-select {
+  margin-bottom: 30px;
+  height: 29px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  border: none;
+  border-bottom: 1px solid #171717;
+}
+
+.form__input-textarea {
+  margin-bottom: 30px;
+  height: 29px;
+  min-height: 29px;
+  overflow: hidden;
+  resize: vertical;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  border: none;
+  border-bottom: 1px solid #171717;
+}
+
+.form__agree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__checkbox {
+  margin-right: 15px;
+}
+
+.form__agree-link {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #585b5e;
 }
