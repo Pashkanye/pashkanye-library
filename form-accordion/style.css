@@ -120,7 +120,7 @@ a {
 }
 
 /* Стиль кнопок, которые используются для открытия и закрытия панели аккордеона */
-.accordion {
+.form__accordion {
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -139,9 +139,9 @@ a {
 }
 
 /* Стиль аккордеон панели. Примечание: скрыто по умолчанию */
-.panel {
-  padding: 0 18px;
-  background-color: white;
+.form__accordion-content {
+  padding-top: 30px;
+  padding-bottom: 40px;
   display: none;
   overflow: hidden;
 }
@@ -175,6 +175,10 @@ a {
 }
 
 .form__specialist-status-container-3 {
+  display: none;
+}
+
+.form__specialist-status-container-4 {
   display: none;
 }
 
