@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="accordion-script.js"></script>
+  <script src="./accordion-script.js"></script>
   <title>Sipe Consulting quiz</title>
 </head>
 
@@ -25,15 +25,45 @@
     <p class="quiz__form-text">Для начала укажите, пожалуйста, кем вы являетесь:</p>
     <form action="" class="quiz__form form">
       <div class="form__status-choice-container">
-        <div class="form__radio-choice">
-          <input class="form__radio" type="radio" id="spec-radio" name="drone" value="spec" />
-          <label for="spec-radio">Специалист здравоохранения</label>
+
+        <label class="form__radio-choice" for="spec-radio">
+          <input class="form__radio" type="radio" id="spec-radio" name="status" value="specialist" />
+          Специалист здравоохранения
+        </label>
+
+
+        <label class="form__radio-choice" for="pacient-radio">
+          <input class="form__radio" type="radio" id="pacient-radio" name="status" value="pacient" />
+          Пациент или иное лицо
+        </label>
+
+      </div>
+      <div class="accordion-container">
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea
+            commodo consequat.</p>
         </div>
-        <div class="form__radio-choice">
-          <input class="form__radio" type="radio" id="pacient-radio" name="drone" value="spec" />
-          <label for="pacient-radio">Пациент или иное лицо</label>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea
+            commodo consequat.</p>
+        </div>
+
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea
+            commodo consequat.</p>
         </div>
       </div>
+
     </form>
     <h3 class="quiz__subtitle">Или свяжитесь с нами по:</h3>
     <div class="quiz__contacts-container">
@@ -46,6 +76,24 @@
           href="tel:+7 (8142) 33 22 11">+7 (495) 414-41-94</a></p>
     </div>
   </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+
 </body>
 
 </html>

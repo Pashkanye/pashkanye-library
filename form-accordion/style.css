@@ -83,10 +83,12 @@ a {
 
 .form__status-choice-container {
   display: flex;
+  gap: 20px;
 }
 
 .form__radio-choice {
   display: flex;
+  /* position: relative; */
   justify-content: center;
   width: 387px;
   padding: 20px 40px;
@@ -94,12 +96,43 @@ a {
   border-radius: 2px;
 }
 
-.form__radio-choice:not(:last-child) {
-  margin-right: 20px;
+.form__radio:checked+.form__radio-choice {
+  background: red;
+}
+
+.form__radio-choice:hover {
+  background: #4B4E53;
 }
 
 .form__radio {
   margin-right: 15px;
+}
+
+/* Стиль кнопок, которые используются для открытия и закрытия панели аккордеона */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Добавить цвет фона для кнопки, если она нажата (добавить .активный класс с JS), а при наведении на него курсора мыши (наведите курсор) */
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+/* Стиль аккордеон панели. Примечание: скрыто по умолчанию */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }
 
 .quiz__contacts-info {
