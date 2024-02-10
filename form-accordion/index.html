@@ -8,14 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="./accordion-script.js"></script>
+  <link rel="stylesheet" href="media.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="ajax.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="imask.js"></script>
   <title>Sipe Consulting quiz</title>
 </head>
 
 <body class="quiz">
   <div class="container">
-    <p class="quiz__tree-path"><a href="" class="quiz__prev-link">Главная</a> / <a href=""
-        class="quiz__act-link">Нежелательные
+    <p class="quiz__tree-path"><a href="" class="quiz__link quiz__prev-link">Главная</a> / <a href=""
+        class="quiz__link quiz__act-link">Нежелательные
         реакции</a></p>
     <h1 class="quiz__title">Нежелательные реакции</h1>
     <p class="quiz__descr">В&nbsp;случае, если вам стало известно о&nbsp;нежелательных реакциях при применении
@@ -23,50 +27,58 @@
       мы&nbsp;просим вас поделиться этой информацией любым удобным для вас способом:</p>
     <h3 class="quiz__subtitle">Заполните форму на сайте.</h3>
     <p class="quiz__form-text">Для начала укажите, пожалуйста, кем вы являетесь:</p>
-    <form action="" class="quiz__form form">
 
 
 
-      <div class="form__status-choice-container">
 
-        <div class="form__choice-button">
-          <input class="form__radio form__choice-radio" type="radio" id="spec-radio" name="status" value="specialist" />
-          <label class="form__choice-label" id="#test" for="spec-radio">
-            <span class="form__choice-label-text">Специалист здравоохранения</span>
-          </label>
-        </div>
+    <div class="form__status-choice-container">
 
-
-        <div class="form__choice-button">
-          <input class="form__radio form__choice-radio" type="radio" id="pacient-radio" name="status" value="pacient" />
-          <label class="form__choice-label" for="pacient-radio">
-            <span class="form__choice-label-text">Пациент или иное лицо</span>
-          </label>
-        </div>
+      <div class="form__choice-button">
+        <input class="form__radio form__choice-radio" type="radio" id="spec-radio" name="status" value="specialist" />
+        <label class="form__radio-label form__choice-label" id="#test" for="spec-radio">
+          <span class="form__choice-label-text form__radio-label-text">Специалист здравоохранения</span>
+        </label>
       </div>
 
-      <div class="form__accordion-container">
+
+      <div class="form__choice-button">
+        <input class="form__radio form__choice-radio" type="radio" id="pacient-radio" name="status" value="pacient" />
+        <label class="form__radio-label form__choice-label" for="pacient-radio">
+          <span class="form__choice-label-text form__radio-label-text">Пациент или иное лицо</span>
+        </label>
+      </div>
+    </div>
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form specialist-form" id="spec-form">
+      <p class="quiz__preform-text">Поля, отмеченные <span class="quiz__preform-text-star">*</span>, — обязательны
+        к заполнению.</p>
+
+      <div class="form__accordion-container" id="spec-container">
         <div class="form__accordion">Шаг 1. Лицо, сообщающее о НР</div>
         <div class="form__content-container form__accordion-content form__specialist-status-container-1">
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Ваше имя *</label><input type="text" id="" name=""
-                  placeholder="Евгений" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Должность *</label><input type="text" id="" name=""
-                  placeholder="Врач, медицинская сестра, провизор и т.д." class="form__input form__input-text">
+              <li class="form__list-item"><label class="form__label">Ваше имя *</label><input type="text"
+                  name="specialist-name" placeholder="Евгений" class="form__input form__input-text" required>
               </li>
-              <li class="form__list-item"><label class="form__label">E-mail *</label><input type="text" id="" name=""
-                  placeholder="forexample@gmail.com" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" id="" name=""
-                  placeholder="+7 (495) 588-42-88" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Должность *</label><input type="text"
+                  name="specialist-job" placeholder="Врач, медицинская сестра, провизор и т.д."
+                  class="form__input form__input-text" required>
+              </li>
+              <li class="form__list-item"><label class="form__label">E-mail *</label><input type="email"
+                  name="specialist-email" placeholder="forexample@gmail.com" class="form__input form__input-text"
+                  required></li>
+              <li class="form__list-item"><label class="form__label">Телефон</label><input type="text"
+                  name="specialist-phone" placeholder="+7 (495) 588-42-88"
+                  class="form__input form__input-text form__input-text-phone" id="1" data-mask="phone"></li>
             </ul>
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Страна *</label><input type="text" id="" name=""
-                  placeholder="Россия" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Регион, область *</label><input type="text" id=""
-                  name="" placeholder="Московская область" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Населенный пункт *</label><input type="text" id=""
-                  name="" placeholder="Москва" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Страна *</label><input type="text"
+                  name="specialist-country" placeholder="Россия" class="form__input form__input-text" required></li>
+              <li class="form__list-item"><label class="form__label">Регион, область *</label><input type="text"
+                  name="specialist-region" placeholder="Московская область" class="form__input form__input-text"
+                  required></li>
+              <li class="form__list-item"><label class="form__label">Населенный пункт *</label><input type="text"
+                  name="specialist-city" placeholder="Москва" class="form__input form__input-text" required></li>
             </ul>
           </div>
         </div>
@@ -75,68 +87,107 @@
         <div class="form__content-container form__accordion-content form__specialist-status-container-2">
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Инициалы *</label><input type="text" id="" name=""
-                  placeholder="ФИО" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Инициалы *</label><input type="text"
+                  name="spec-pacient-fio" placeholder="ФИО" class="form__input form__input-text" required></li>
               <li class="form__list-item"><label class="form__label">Номер амбулаторной карты или история
-                  болезни</label><input type="text" id="" name="" placeholder="238"
+                  болезни</label><input type="text" name="spec-pacient-medcart-num" placeholder="238"
                   class="form__input form__input-text">
               </li>
-              <li class="form__list-item"><label class="form__label">Возраст</label><input type="text" id="" name=""
-                  placeholder="34" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Вес</label><input type="text" id="" name=""
-                  placeholder="57" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Возраст</label><input type="text"
+                  name="spec-pacient-age" placeholder="34" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Вес</label><input type="text"
+                  name="spec-pacient-weight" placeholder="57" class="form__input form__input-text"></li>
               <li class="form__list-item"><label class="form__label">Пол</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Мужчина</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Женщина</label>
+                  <label for="spec-pacient-male" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-male" value="male"><span
+                      class="form__radio-label-text">
+                      Мужчина</span></label>
+                  <label for="spec-pacient-female" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-female"
+                      value="female"><span class="form__radio-label-text"> Женщина</span></label>
                 </div>
               </li>
-              <li class="form__list-item"><label class="form__label">Беременность</label>
+              <li class="form__list-item"><label class="form__label" id="pregnancy-label">Беременность</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Да</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Нет</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Неизвестно</label>
+                  <label for="spec-pacient-preg-yes" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-yes"
+                      value="Да"><span class="form__radio-label-text"> Да</span></label>
+                  <label for="spec-pacient-preg-no" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-no"
+                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                  <label for="spec-pacient-preg-unknown" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-unknown"
+                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
                 </div>
               </li>
-              <li class="form__list-item"><label class="form__label">Срок беременности</label><input type="text" id=""
-                  name="" placeholder="14 недель" class="form__input form__input-text"></li>
+              <li class="form__list-item" id="pregnancy-text"><input type="text" name="spec-pacient-pregnancy-time"
+                  id="spec-pacient-pregnancy-time" placeholder="14 недель" class="form__input form__input-text"
+                  disabled><label class="form__label">Срок беременности</label></li>
             </ul>
             <ul class="form__list reset-list">
               <li class="form__list-item"><label class="form__label">Лечение</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Амбулаторное</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Самолечение</label>
+                  <label for="spec-pacient-therapy-ambul" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-therapy" id="spec-pacient-therapy-ambul"
+                      value="ambulance"><span class="form__radio-label-text"> Амбулаторное</span></label>
+                  <label for="spec-pacient-therapy-selfheal" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-therapy" id="spec-pacient-therapy-selfheal"
+                      value="selfhealing"><span class="form__radio-label-text"> Самолечение</span></label>
                 </div>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Стационарное</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Неизвестно</label>
+                  <label for="spec-pacient-therapy-station" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-therapy" id="spec-pacient-therapy-station"
+                      value="stationary"><span class="form__radio-label-text"> Стационарное</span></label>
+                  <label for="spec-pacient-therapy-unknown" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-therapy" id="spec-pacient-therapy-unknown"
+                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
                 </div>
               </li>
               <li class="form__list-item"><label class="form__label">Нарушение функции печени</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Да</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Нет</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Неизвестно</label>
+                  <label for="spec-pacient-liver-yes" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-yes"
+                      value="Да"><span class="form__radio-label-text"> Да</span></label>
+                  <label for="spec-pacient-liver-no" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-no"
+                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                  <label for="spec-pacient-liver-unknown" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-unknown"
+                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
                 </div>
               </li>
               <li class="form__list-item"><label class="form__label">Нарушении функции почек</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Да</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Нет</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Неизвестно</label>
+                  <label for="spec-pacient-kidney-yes" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-yes"
+                      value="Да"><span class="form__radio-label-text"> Да</span></label>
+                  <label for="spec-pacient-kidney-no" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-no"
+                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                  <label for="spec-pacient-kidney-unknown" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-unknown"
+                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
                 </div>
               </li>
               <li class="form__list-item"><label class="form__label">Аллергия</label>
                 <div class="form__container-flex">
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Да</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Нет</label>
-                  <label for="" class="form__radio-label"><input class="form__radio" type="radio">Неизвестно</label>
+                  <label for="spec-pacient-allergy-yes" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-yes"
+                      value="Да"><span class="form__radio-label-text"> Да</span></label>
+                  <label for="spec-pacient-allergy-no" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-no"
+                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                  <label for="spec-pacient-allergy-unknown" class="form__radio-label form__radio-label-inside"><input
+                      class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-unknown"
+                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
                 </div>
               </li>
               <li class="form__list-item"><label class="form__label">Сопутствующие заболевания</label><input type="text"
-                  placeholder="Укажите болезни" class="form__input form__input-text"></li>
+                  placeholder="Укажите болезни" class="form__input form__input-text"
+                  name="spec-pacient-accompanying-illnesses"></li>
               <li class="form__list-item"><label class="form__label">Препараты, принимаемые в течение последних 3-х
-                  месяцев</label><input type="text" id="" name="" placeholder="Название препаратов"
+                  месяцев</label><input type="text" name="spec-pacient-last-drugs" placeholder="Название препаратов"
                   class="form__input form__input-text">
               </li>
             </ul>
@@ -147,31 +198,36 @@
         <div class="form__content-container form__accordion-content form__specialist-status-container-3">
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Название *</label><input type="text" id="" name=""
-                  placeholder="Амброксол" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Показаниедля приёма</label><input type="text" id=""
-                  name="" placeholder="Кашель" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Путь введения</label><select
-                  class="form__input form__input-text">
+              <li class="form__list-item"><label class="form__label">Название *</label><input type="text"
+                  name="spec-pacient-drug-name" placeholder="Амброксол" class="form__input form__input-text" required>
+              </li>
+              <li class="form__list-item"><label class="form__label">Показание для приёма</label><input type="text"
+                  name="spec-pacient-indication-for-use-drug" placeholder="Кашель" class="form__input form__input-text">
+              </li>
+              <li class="form__list-item"><label class="form__label">Путь введения</label>
+                <select class="form__input form__input-select" name="spec-pacient-way-of-injection-drug">
                   <option value="Внутрь">Внутрь</option>
                   <option value="Ингаляционно">Ингаляционно</option>
                   <option value="Внутримышечно">Внутримышечно</option>
                   <option value="Внутривенно">Внутривенно</option>
                   <option value="Наружно">Наружно</option>
                   <option value="Другое">Другое</option>
-                </select></li>
-              <li class="form__list-item"><label class="form__label">Доза</label><input type="text" id="" name=""
-                  placeholder="1 таб. 0.25 мг 3 раза в день" class="form__input form__input-text"></li>
+                </select>
+              </li>
+              <li class="form__list-item"><label class="form__label">Доза</label><input type="text"
+                  name="spec-pacient-drug-dose" placeholder="1 таб. 0.25 мг 3 раза в день"
+                  class="form__input form__input-text"></li>
             </ul>
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Срок годности</label><input type="text" id=""
-                  name="" placeholder="2023-05-09 - 2027-05-09" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Серия</label><input type="text" id="" name=""
-                  placeholder="123567" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Дата начала терапии</label><input type="date"
+              <li class="form__list-item"><label class="form__label">Срок годности</label><input type="text"
+                  name="spec-pacient-drug-exp-date" placeholder="2023-05-09 - 2027-05-09"
                   class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Серия</label><input type="text"
+                  name="spec-pacient-drug-series" placeholder="123567" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Дата начала терапии</label><input type="date"
+                  class="form__input form__input-text" name="spec-pacient-start-drug-use-date"></li>
               <li class="form__list-item"><label class="form__label">Дата последнего приёма до НР</label><input
-                  type="date" class="form__input form__input-text"></li>
+                  type="date" class="form__input form__input-text" name="spec-pacient-end-drug-use-date"></li>
             </ul>
           </div>
         </div>
@@ -181,78 +237,108 @@
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
               <li class="form__list-item"><label class="form__label">Опишите НР *</label><textarea
-                  class="form__input form__input-textarea"></textarea></li>
+                  class="form__input form__input-textarea" name="spec-pacient-unwanted-reaction-desc"
+                  required></textarea></li>
             </ul>
             <ul class="form__list reset-list">
               <li class="form__list-item"><label class="form__label">Дата начала НР</label><input type="date"
-                  class="form__input form__input-text"></li>
+                  class="form__input form__input-text" name="spec-pacient-unwanted-reaction-start-date"></li>
               <li class="form__list-item"><label class="form__label">Дата окончания НР</label><input type="date"
-                  class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Исход НР</label><select
-                  class="form__input form__input-text">
+                  class="form__input form__input-text" name="spec-pacient-unwanted-reaction-end-date"></li>
+              <li class="form__list-item"><label class="form__label">Исход НР</label>
+                <select class="form__input form__input-select" name="spec-pacient-unwanted-reaction-result">
                   <option value="Выздоровление без последствий">Выздоровление без последствий</option>
                   <option value="Выздоровление с последствиями">Выздоровление с последствиями</option>
                   <option value="Улучшение состояния">Улучшение состояния</option>
                   <option value="Состояние без изменений">Состояние без изменений</option>
                   <option value="Смерть">Смерть</option>
                   <option value="Неизвестно">Неизвестно</option>
-                </select></li>
+                </select>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="form__content-container form__pacient-status-container">
+      <p class="form__checkbox-mistake-text" id="specialist-mistake-text">Вы не согласились с правилами сайта.</p>
+
+      <div class="form__agree-container">
+        <label class="form__checkbox-label" for="specialist-checkbox-1"><input class="form__checkbox"
+            id="specialist-checkbox-1" type="checkbox" name=""><span class="form__checkbox-text">Я ознакомился и
+            согласен с <a class="quiz__link form__agree-link" href="">Условиями использования
+              Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
+              Сайта</a></span></label>
+        <label class="form__checkbox-label" for="specialist-checkbox-2"><input class="form__checkbox"
+            id="specialist-checkbox-2" type="checkbox" name=""><span class="form__checkbox-text">
+            Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
+              данных</a></span></label>
+      </div>
+
+      <button class="form__button" id="specialist-button">Отправить</button>
+
+    </form>
+
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form pacient-form" id="pacient-form">
+      <div class="form__content-container form__pacient-status-container" id="pacient-container">
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Ваше имя</label><input type="text" id="" name=""
-              placeholder="Евгений" class="form__input form__input-text"></li>
-          <li class="form__list-item"><label class="form__label">E-mail</label><input type="text" id="" name=""
-              placeholder="forexample@gmail.com" class="form__input form__input-text"></li>
-          <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" id="" name=""
-              placeholder="+7 (495) 588-42-88" class="form__input form__input-text"></li>
-          <li class="form__list-item"><label class="form__label">Кем вы являетесь</label><select
-              class="form__input form__input-text">
+          <li class="form__list-item"><label class="form__label">Ваше имя</label><input type="text" name="pacient-name"
+              placeholder="Евгений" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">E-mail</label><input type="email" name="pacient-mail"
+              placeholder="forexample@gmail.com" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" name="pacient-phone"
+              placeholder="+7 (495) 588-42-88" class="form__input form__input-text form__input-text-phone"
+              data-mask="phone" required>
+          </li>
+          <li class="form__list-item"><label class="form__label">Кем вы являетесь</label>
+            <select class="form__input form__input-select" name="pacient-status" required>
               <option value="Пациент">Пациент</option>
               <option value="Родственник пациента">Родственник пациента</option>
               <option value="Посетитель">Посетитель</option>
               <option value="Другое">Другое</option>
-            </select></li>
+            </select>
+          </li>
         </ul>
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Страна</label><input type="text" id="" name=""
-              placeholder="Россия" class="form__input form__input-text"></li>
-          <li class="form__list-item"><label class="form__label">Регион, область</label><input type="text" id="" name=""
-              placeholder="Московская область" class="form__input form__input-text"></li>
-          <li class="form__list-item"><label class="form__label">Населенный пункт</label><input type="text" id=""
-              name="" placeholder="Москва" class="form__input form__input-text"></li>
+          <li class="form__list-item"><label class="form__label">Страна</label><input type="text" name="pacient-country"
+              placeholder="Россия" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">Регион, область</label><input type="text"
+              name="pacient-region" placeholder="Московская область" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">Населенный пункт</label><input type="text"
+              name="pacient-city" placeholder="Москва" class="form__input form__input-text" required></li>
           <li class="form__list-item"><label class="form__label">Опишите НР</label><textarea
-              placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea"></textarea></li>
+              placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea"
+              name="pacient-unwanted-reaction-descr" required></textarea>
+          </li>
         </ul>
       </div>
 
+      <p class="form__checkbox-mistake-text" id="pacient-mistake-text">Вы не согласились с правилами сайта.</p>
+
       <div class="form__agree-container">
-        <label class="form__checkbox-label" for="checkbox1"><input class="form__checkbox" id="checkbox1" type="checkbox"
-            name=""><span class="form__checkbox-text">Я ознакомился и согласен с <a class="form__agree-link"
-              href="">Условиями использования
-              Сервиса</a> и <a class="form__agree-link" href="">Условиями использования Сайта</a></span></label>
-        <label class="form__checkbox-label" for="checkbox2"><input class="form__checkbox" id="checkbox2" type="checkbox"
-            name=""><span class="form__checkbox-text">Я согласен на <a class="form__agree-link" href="">Обработку
-              персональных
+        <label class="form__checkbox-label" for="pacient-checkbox-1"><input class="form__checkbox"
+            id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1" required><span class="form__checkbox-text">Я
+            ознакомился и согласен с
+            <a class="quiz__link form__agree-link" href="">Условиями использования
+              Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
+              Сайта</a></span></label>
+        <label class="form__checkbox-label" for="pacient-checkbox-2"><input class="form__checkbox"
+            id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2" required><span class="form__checkbox-text">
+            Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
               данных</a></span></label>
       </div>
 
-      <button class="form__button">Отправить</button>
+      <button class="form__button" id="pacient-button">Отправить</button>
 
     </form>
     <h3 class="quiz__subtitle">Или свяжитесь с нами по:</h3>
     <div class="quiz__contacts-container">
-      <p class="quiz__contacts-text">Электронная почта: <a class="quiz__contacts-info quiz__contacts-link"
+      <p class="quiz__contacts-text">Электронная почта: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
           href="mailto:info@sipeconsult.com">info@sipeconsult.com</a></p>
       <p class="quiz__contacts-text">Почта: <span class="quiz__contacts-info">125476, г. Москва, ул. Василия Петушкова,
           д.
           27</span></p>
-      <p class="quiz__contacts-text">Телефон: <a class="quiz__contacts-info quiz__contacts-link"
-          href="tel:+7 (8142) 33 22 11">+7 (495) 414-41-94</a></p>
+      <p class="quiz__contacts-text">Телефон: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
+          href="tel:+7 (495) 414 41 94">+7 (495) 414-41-94</a></p>
     </div>
   </div>
 
@@ -261,8 +347,6 @@
       el.addEventListener('click', () => {
 
         let content = el.nextElementSibling;
-
-        console.log(content)
 
         if (content.style.maxHeight) {
           document.querySelectorAll('.form__accordion-content').forEach((el) => el.style.display = null)
@@ -274,7 +358,114 @@
       })
 
     })
+
+    const specRadio = document.querySelector("#spec-radio");
+    const pacientRadio = document.querySelector("#pacient-radio");
+    const specForm = document.querySelector("#spec-form");
+    const pacientForm = document.querySelector("#pacient-form");
+    specForm.style.display = "none";
+    pacientForm.style.display = "none";
+
+    specRadio.addEventListener("change", () => {
+      if (specRadio.checked) {
+        specForm.style.display = "block";
+        pacientForm.style.display = "none";
+      }
+    });
+    pacientRadio.addEventListener("change", () => {
+      if (pacientRadio.checked) {
+        specForm.style.display = "none";
+        pacientForm.style.display = "block";
+      }
+    });
+
+    const pacientSexFemale = document.querySelector("#spec-pacient-female");
+    const pacientSexMale = document.querySelector("#spec-pacient-male");
+
+    pacientSexFemale.addEventListener("change", () => {
+      if (pacientSexFemale.checked) {
+        document.getElementsByName("spec-pacient-pregnancy").disabled = false;
+
+        var pregnancyVariants = document.getElementsByName("spec-pacient-pregnancy");
+        var pregnancyLen = pregnancyVariants.length;
+        for (var i = 0; i < pregnancyLen; i++) {
+          pregnancyVariants[i].disabled = false;
+        }
+
+        document.getElementById("spec-pacient-pregnancy-time").disabled = false;
+        document.getElementById("pregnancy-label").style.color = "#171717";
+        console.log('321');
+      }
+    });
+
+    pacientSexMale.addEventListener("change", () => {
+      if (pacientSexMale.checked) {
+
+        var pregnancyVariants = document.getElementsByName("spec-pacient-pregnancy");
+        var pregnancyLen = pregnancyVariants.length;
+        for (var i = 0; i < pregnancyLen; i++) {
+          pregnancyVariants[i].disabled = true;
+          pregnancyVariants[i].checked = false;
+        }
+
+        document.getElementById("spec-pacient-pregnancy-time").disabled = true;
+        document.getElementById("spec-pacient-pregnancy-time").value = '';
+        document.getElementById("pregnancy-label").style.color = "#727272";
+        console.log('123');
+      }
+    });
+    // asdsadasd
+    const specialistButton = document.getElementById("specialist-button");
+    const pacientButton = document.getElementById("pacient-button");
+
+    const specialistCheckbox1 = document.getElementById("specialist-checkbox-1");
+    const specialistCheckbox2 = document.getElementById("specialist-checkbox-2");
+    const pacientCheckbox1 = document.getElementById("pacient-checkbox-1");
+    const pacientCheckbox2 = document.getElementById("pacient-checkbox-2");
+
+    const specialistMistakeText = document.getElementById("specialist-mistake-text");
+    const pacientMistakeText = document.getElementById("pacient-mistake-text");
+
+    specialistButton.addEventListener("click", () => {
+      if (specialistCheckbox1.checked && specialistCheckbox2.checked) {
+
+        specialistMistakeText.style.display = "none";
+        console.log('222');
+
+      } else {
+        specialistMistakeText.style.display = "block";
+        console.log('111');
+      }
+    });
+
+    pacientButton.addEventListener("click", () => {
+      if (pacientCheckbox1.checked && pacientCheckbox2.checked) {
+
+        pacientMistakeText.style.display = "none";
+        console.log('222');
+
+      } else {
+        pacientMistakeText.style.display = "block";
+        console.log('111');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const elements = document.querySelectorAll('[data-mask="phone"]') // ищем все поля с атрибутом data-mask="phone"
+      if (!elements) return // если таких нет, прекращаем выполнение функции
+      const phoneOptions = { // создаем объект параметров
+        mask: '+{7}(000)000-00-00' // задаем единственный параметр mask
+      }
+      elements.forEach(el => { // для каждого найденного поля с атрибутом [data-mask="phone"]
+        IMask(el, phoneOptions) // инициализируем плагин с установленными выше параметрами
+      })
+
+    })
+
+
   </script>
 
 </body>
-<script src="" </html>
+
+</html>

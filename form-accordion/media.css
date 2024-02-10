@@ -1,0 +1,108 @@
+@media screen and (max-width: 940px) {
+
+  .quiz {
+    background-position: right -670px top -50px;
+    background-size: 1075px 769px;
+  }
+
+  .form__status-choice-container {
+    justify-content: space-around;
+  }
+
+  .form__choice-label {
+    width: 100%;
+  }
+
+  .form__accordion-block {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .form__pacient-status-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .form__list {
+    width: 100%;
+  }
+
+  .form__specialist-status-container-4 {
+    height: 100%;
+  }
+
+}
+
+@media screen and (max-width: 667px) {
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .quiz__title {
+    font-size: 17px;
+  }
+
+  .quiz__descr {
+    font-size: 16px;
+    line-height: 110%;
+  }
+
+  .quiz__subtitle {
+    font-size: 15px;
+    line-height: 120%;
+  }
+
+  .quiz__form-text {
+    font-size: 15px;
+    line-height: 120%;
+  }
+
+  .form__status-choice-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form__choice-label {
+    width: 100%;
+  }
+
+  .quiz__preform-text {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .form__accordion {
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  .form__label {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 120%;
+  }
+
+  .form__input-textarea {
+    margin-bottom: 0;
+    height: 150px;
+    resize: none;
+  }
+
+  .form__button {
+    width: 100%;
+  }
+
+  .quiz__contacts-text {
+    font-size: 15px;
+  }
+
+  .quiz__contacts-info {
+    font-size: 14px;
+  }
+
+  .form__checkbox-mistake-text {
+    font-size: 14px;
+  }
+
+}

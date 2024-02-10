@@ -17,7 +17,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 input[type=date] {
-  background: url("./img/calendar_16\ px.svg") #f7f9fc no-repeat 100% 50%;
+  background: url("./img/calendar_16\ px.svg") no-repeat 100% 50%;
 }
 
 .reset-list,
@@ -67,7 +67,7 @@ a {
 .quiz__tree-path {
   padding-bottom: 100px;
   font-size: 15px;
-  color: #585B5E;
+  color: var(--site-nabornyy);
 }
 
 .quiz__prev-link {
@@ -90,7 +90,10 @@ a {
 .quiz__descr {
   padding-bottom: 60px;
   max-width: 590px;
-  color: #585B5E;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: var(--site-nabornyy);
 }
 
 .quiz__subtitle {
@@ -108,16 +111,30 @@ a {
   margin-bottom: 30px;
   font-size: 16px;
   line-height: 120%;
-  color: #585B5E;
+  color: var(--site-nabornyy);
+}
+
+.quiz__preform-text {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 140%;
+  color: var(--site-nabornyy);
+}
+
+.quiz__preform-text-star {
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .form {
   margin-bottom: 50px;
-  color: #585B5E;
+  color: var(--site-nabornyy);
 }
 
 .form__status-choice-container {
   display: flex;
+  justify-content: start;
   gap: 20px;
   margin-bottom: 40px;
 }
@@ -129,7 +146,7 @@ a {
   align-items: center;
 }
 
-.form__choice-radio {
+.form__radio {
   position: absolute;
   appearance: none;
   left: 15%;
@@ -137,21 +154,34 @@ a {
   transform: translateY(-50%);
 }
 
+.form__radio:disabled+.form__radio-label-text {
+  color: var(--site-dissabled);
+}
+
+.form__radio:disabled+.form__radio-label-text::before {
+  background-image: url(./img/radio-disabled.svg);
+}
+
+.form__radio-label {
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
 .form__choice-label {
   text-align: center;
   width: 387px;
   padding: 20px 50px 20px 80px;
-  cursor: pointer;
   border: 1px solid var(--site-vspomogatelnyy-5);
   border-radius: 2px;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.form__choice-label-text {
+.form__radio-label-text {
+  display: block;
   position: relative;
+  transition: color 0.2s ease-in-out;
 }
 
-.form__choice-label-text::before {
+.form__radio-label-text::before {
   content: '';
   position: absolute;
   left: -35px;
@@ -162,11 +192,10 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   transform: translateY(-50%);
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, background-image 0.3s ease-in-out;
 }
 
-.form__choice-label-text::after {
+.form__radio-label-text::after {
   content: '';
   position: absolute;
   left: -31px;
@@ -181,12 +210,12 @@ a {
   transition: opacity 0.3s ease-in-out;
 }
 
-.form__radio:hover+.form__choice-label {
+.form__radio:hover+.form__radio-label {
   background: var(--site-vspomogatelnyy-5);
   color: var(--site-hover);
 }
 
-.form__choice-label:hover>.form__choice-label-text::before {
+.form__radio-label:hover>.form__radio-label-text::before {
   opacity: 1;
 }
 
@@ -195,12 +224,24 @@ a {
   color: var(--site-hover);
 }
 
-.form__radio:checked+.form__choice-label>.form__choice-label-text::before {
+.form__radio:checked+.form__radio-label>.form__radio-label-text::after {
   opacity: 1;
 }
 
-.form__radio:checked+.form__choice-label>.form__choice-label-text::after {
+.form__radio:checked+.form__radio-label-text::after {
   opacity: 1;
+}
+
+.form__radio:hover+.form__radio-label-text {
+  color: var(--site-hover);
+}
+
+.form__radio:checked+.form__radio-label-text {
+  color: var(--site-hover);
+}
+
+.form__radio:hover:disabled+.form__radio-label-text {
+  color: var(--site-dissabled);
 }
 
 .form__radio {
@@ -209,10 +250,11 @@ a {
 
 /* Стиль кнопок, которые используются для открытия и закрытия панели аккордеона */
 .form__accordion {
+  position: relative;
   background-color: inherit;
   color: var(--site-bg-dopolnitelnyy);
   cursor: pointer;
-  padding: 40px 0 10px;
+  padding: 40px 80px 10px 0;
   width: 100%;
   text-align: left;
   font-weight: 700;
@@ -224,6 +266,17 @@ a {
   border-bottom: 2px solid var(--site-bg-dopolnitelnyy);
   user-select: none;
   transition: 0.4s;
+}
+
+.form__accordion::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 0%;
+  top: 50%;
+  background-image: url(./img/arrow.svg);
+  transform: rotate(0deg);
 }
 
 /* Добавить цвет фона для кнопки, если она нажата (добавить .активный класс с JS), а при наведении на него курсора мыши (наведите курсор) */
@@ -251,9 +304,17 @@ a {
   height: 100%;
 }
 
+.quiz__contacts-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+}
+
 .quiz__contacts-info {
   font-weight: 400;
-  color: #585B5E;
+  font-size: 15px;
+  line-height: 140%;
+  color: var(--site-nabornyy);
 }
 
 .quiz__contacts-container {
@@ -267,24 +328,8 @@ a {
 }
 
 .form__pacient-status-container {
-  display: none;
+  margin-bottom: 50px;
 }
-
-/* .form__specialist-status-container-1 {
-  display: none;
-}
-
-.form__specialist-status-container-2 {
-  display: none;
-}
-
-.form__specialist-status-container-3 {
-  display: none;
-}
-
-.form__specialist-status-container-4 {
-  display: none;
-} */
 
 .form__list {
   width: calc(100% / 2 - 40px);
@@ -319,17 +364,20 @@ a {
   font-weight: 600;
   font-size: 16px;
   line-height: 120%;
-  color: #171717;
+  color: var(--site-bg-dopolnitelnyy);
   vertical-align: middle;
+  transition: color 0.2s ease-in-out;
 }
 
-.form__radio-label {
-  display: flex;
+.form__radio-label-inside {
+  position: relative;
+  padding-left: 35px;
   align-items: center;
   cursor: pointer;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
+  user-select: none;
 }
 
 .form__input:focus {
@@ -342,30 +390,53 @@ a {
   font-size: 15px;
   line-height: 140%;
   border: none;
-  border-bottom: 1px solid #171717;
+  border-bottom: 1px solid var(--site-bg-dopolnitelnyy);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form__input-text:hover {
+  border-color: var(--site-hover-2);
+}
+
+#pregnancy-text {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.form__input-text:disabled {
+  background-color: inherit;
+  border-color: var(--site-dissabled);
+}
+
+.form__input-text:disabled~.form__label {
+  color: var(--site-hover-2);
+}
+
+#pregnancy-label {
+  transition: color 0.2s ease-in-out;
 }
 
 .form__input-select {
-  margin-bottom: 30px;
   height: 29px;
   font-weight: 400;
   font-size: 15px;
   line-height: 140%;
   border: none;
-  border-bottom: 1px solid #171717;
+  border-bottom: 1px solid var(--site-bg-dopolnitelnyy);
+  cursor: pointer;
 }
 
 .form__input-textarea {
-  margin-bottom: 30px;
   height: 29px;
   min-height: 29px;
+  max-height: 202px;
   overflow: hidden;
   resize: vertical;
   font-weight: 400;
   font-size: 15px;
   line-height: 140%;
   border: none;
-  border-bottom: 1px solid #171717;
+  border-bottom: 1px solid var(--site-bg-dopolnitelnyy);
 }
 
 .form__agree-container {
@@ -381,7 +452,16 @@ a {
 
 .form__agree-link {
   padding-bottom: 2px;
-  border-bottom: 1px solid #585b5e;
+  border-bottom: 1px solid var(--site-nabornyy);
+}
+
+.quiz__link {
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.quiz__link:hover {
+  color: var(--site-hover);
+  border-color: var(--site-hover);
 }
 
 .form__button {
@@ -390,6 +470,11 @@ a {
   padding: 15px 65px;
   background-color: #535961;
   color: #fff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form__button:hover {
+  background-color: var(--site-hover);
 }
 
 .form__checkbox-label {
@@ -403,8 +488,12 @@ a {
 }
 
 .form__checkbox-text {
+  display: block;
   position: relative;
   padding-left: 35px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 180%;
 }
 
 .form__checkbox-text::before {
@@ -448,4 +537,15 @@ a {
 
 .form__checkbox-label:hover .form__checkbox-text::before {
   border-color: var(--site-hover);
+}
+
+.form__checkbox-mistake-text {
+  display: none;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 140%;
+  color: var(--site-mistake);
 }
