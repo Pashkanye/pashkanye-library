@@ -9,10 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="media.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ajax.js"></script>
-  <script src="jquery.min.js"></script>
+  <!-- <script src="jquery.min.js"></script> -->
   <script src="imask.js"></script>
+  <script src="ajax.js"></script>
   <title>Sipe Consulting quiz</title>
 </head>
 
@@ -57,28 +56,36 @@
         <div class="form__content-container form__accordion-content form__specialist-status-container-1">
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Ваше имя *</label><input type="text"
-                  name="specialist-name" placeholder="Евгений" class="form__input form__input-text" required>
+              <li class="form__list-item"><label class="form__label">Ваше имя *</label>
+                <input type="text" name="specialist-name" placeholder="Евгений" class="form__input form__input-text"
+                  required>
               </li>
-              <li class="form__list-item"><label class="form__label">Должность *</label><input type="text"
-                  name="specialist-job" placeholder="Врач, медицинская сестра, провизор и т.д."
+              <li class="form__list-item"><label class="form__label">Должность *</label>
+                <input type="text" name="specialist-job" placeholder="Врач, медицинская сестра, провизор и т.д."
                   class="form__input form__input-text" required>
               </li>
-              <li class="form__list-item"><label class="form__label">E-mail *</label><input type="email"
-                  name="specialist-email" placeholder="forexample@gmail.com" class="form__input form__input-text"
-                  required></li>
-              <li class="form__list-item"><label class="form__label">Телефон</label><input type="text"
-                  name="specialist-phone" placeholder="+7 (495) 588-42-88"
-                  class="form__input form__input-text form__input-text-phone" id="1" data-mask="phone"></li>
+              <li class="form__list-item"><label class="form__label">E-mail *</label>
+                <input type="email" name="specialist-email" placeholder="forexample@gmail.com"
+                  class="form__input form__input-text" required>
+              </li>
+              <li class="form__list-item"><label class="form__label">Телефон</label>
+                <input type="text" name="specialist-phone" placeholder="+7 (495) 588-42-88"
+                  class="form__input form__input-text form__input-text-phone" id="1" data-mask="phone">
+              </li>
             </ul>
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Страна *</label><input type="text"
-                  name="specialist-country" placeholder="Россия" class="form__input form__input-text" required></li>
-              <li class="form__list-item"><label class="form__label">Регион, область *</label><input type="text"
-                  name="specialist-region" placeholder="Московская область" class="form__input form__input-text"
-                  required></li>
-              <li class="form__list-item"><label class="form__label">Населенный пункт *</label><input type="text"
-                  name="specialist-city" placeholder="Москва" class="form__input form__input-text" required></li>
+              <li class="form__list-item"><label class="form__label">Страна *</label>
+                <input type="text" name="specialist-country" placeholder="Россия" class="form__input form__input-text"
+                  required>
+              </li>
+              <li class="form__list-item"><label class="form__label">Регион, область *</label>
+                <input type="text" name="specialist-region" placeholder="Московская область"
+                  class="form__input form__input-text" required>
+              </li>
+              <li class="form__list-item"><label class="form__label">Населенный пункт *</label>
+                <input type="text" name="specialist-city" placeholder="Москва" class="form__input form__input-text"
+                  required>
+              </li>
             </ul>
           </div>
         </div>
@@ -87,16 +94,21 @@
         <div class="form__content-container form__accordion-content form__specialist-status-container-2">
           <div class="form__accordion-block">
             <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Инициалы *</label><input type="text"
-                  name="spec-pacient-fio" placeholder="ФИО" class="form__input form__input-text" required></li>
+              <li class="form__list-item"><label class="form__label">Инициалы *</label>
+                <input type="text" name="spec-pacient-fio" placeholder="ФИО" class="form__input form__input-text"
+                  required>
+              </li>
               <li class="form__list-item"><label class="form__label">Номер амбулаторной карты или история
-                  болезни</label><input type="text" name="spec-pacient-medcart-num" placeholder="238"
+                  болезни</label>
+                <input type="text" name="spec-pacient-medcart-num" placeholder="238"
                   class="form__input form__input-text">
               </li>
-              <li class="form__list-item"><label class="form__label">Возраст</label><input type="text"
-                  name="spec-pacient-age" placeholder="34" class="form__input form__input-text"></li>
-              <li class="form__list-item"><label class="form__label">Вес</label><input type="text"
-                  name="spec-pacient-weight" placeholder="57" class="form__input form__input-text"></li>
+              <li class="form__list-item"><label class="form__label">Возраст</label>
+                <input type="text" name="spec-pacient-age" placeholder="34" class="form__input form__input-text">
+              </li>
+              <li class="form__list-item"><label class="form__label">Вес</label>
+                <input type="text" name="spec-pacient-weight" placeholder="57" class="form__input form__input-text">
+              </li>
               <li class="form__list-item"><label class="form__label">Пол</label>
                 <div class="form__container-flex">
                   <label for="spec-pacient-male" class="form__radio-label form__radio-label-inside"><input
@@ -274,23 +286,23 @@
               данных</a></span></label>
       </div>
 
-      <button class="form__button" id="specialist-button">Отправить</button>
+      <button type="submit" class="form__button" id="specialist-button">Отправить</button>
 
     </form>
 
-    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form pacient-form" id="pacient-form">
+    <form method="POST" class="form pacient-form" id="pacient-form">
       <div class="form__content-container form__pacient-status-container" id="pacient-container">
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Ваше имя</label><input type="text" name="pacient-name"
-              placeholder="Евгений" class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">E-mail</label><input type="email" name="pacient-mail"
-              placeholder="forexample@gmail.com" class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" name="pacient-phone"
-              placeholder="+7 (495) 588-42-88" class="form__input form__input-text form__input-text-phone"
-              data-mask="phone" required>
+          <li class="form__list-item"><label class="form__label">Ваше имя</label><input type="text" id="pacient-name"
+              name="pacient-name" placeholder="Евгений" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">E-mail</label><input type="email" id="pacient-mail"
+              name="pacient-mail" placeholder="forexample@gmail.com" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" id="pacient-phone"
+              name="pacient-phone" placeholder="+7 (495) 588-42-88"
+              class="form__input form__input-text form__input-text-phone" data-mask="phone" required>
           </li>
           <li class="form__list-item"><label class="form__label">Кем вы являетесь</label>
-            <select class="form__input form__input-select" name="pacient-status" required>
+            <select class="form__input form__input-select" id="pacient-status" name="pacient-status" required>
               <option value="Пациент">Пациент</option>
               <option value="Родственник пациента">Родственник пациента</option>
               <option value="Посетитель">Посетитель</option>
@@ -299,15 +311,17 @@
           </li>
         </ul>
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Страна</label><input type="text" name="pacient-country"
-              placeholder="Россия" class="form__input form__input-text" required></li>
+          <li class="form__list-item"><label class="form__label">Страна</label><input type="text" id="pacient-country"
+              name="pacient-country" placeholder="Россия" class="form__input form__input-text" required></li>
           <li class="form__list-item"><label class="form__label">Регион, область</label><input type="text"
-              name="pacient-region" placeholder="Московская область" class="form__input form__input-text" required></li>
+              id="pacient-region" name="pacient-region" placeholder="Московская область"
+              class="form__input form__input-text" required></li>
           <li class="form__list-item"><label class="form__label">Населенный пункт</label><input type="text"
-              name="pacient-city" placeholder="Москва" class="form__input form__input-text" required></li>
+              id="pacient-city" name="pacient-city" placeholder="Москва" class="form__input form__input-text" required>
+          </li>
           <li class="form__list-item"><label class="form__label">Опишите НР</label><textarea
               placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea"
-              name="pacient-unwanted-reaction-descr" required></textarea>
+              id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr" required></textarea>
           </li>
         </ul>
       </div>
@@ -327,7 +341,7 @@
               данных</a></span></label>
       </div>
 
-      <button class="form__button" id="pacient-button">Отправить</button>
+      <button type="submit" class="form__button" id="pacient-button">Отправить</button>
 
     </form>
     <h3 class="quiz__subtitle">Или свяжитесь с нами по:</h3>
@@ -430,11 +444,9 @@
       if (specialistCheckbox1.checked && specialistCheckbox2.checked) {
 
         specialistMistakeText.style.display = "none";
-        console.log('222');
 
       } else {
         specialistMistakeText.style.display = "block";
-        console.log('111');
       }
     });
 
@@ -442,11 +454,9 @@
       if (pacientCheckbox1.checked && pacientCheckbox2.checked) {
 
         pacientMistakeText.style.display = "none";
-        console.log('222');
 
       } else {
         pacientMistakeText.style.display = "block";
-        console.log('111');
       }
     });
 
