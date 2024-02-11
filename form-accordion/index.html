@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="media.css">
   <!-- <script src="jquery.min.js"></script> -->
   <script src="imask.js"></script>
-  <script src="ajax.js"></script>
   <title>Sipe Consulting quiz</title>
 </head>
 
@@ -66,7 +65,7 @@
               </li>
               <li class="form__list-item"><label class="form__label">E-mail *</label>
                 <input type="email" name="specialist-email" placeholder="forexample@gmail.com"
-                  class="form__input form__input-text" required>
+                  class="form__input form__input-text _email" required>
               </li>
               <li class="form__list-item"><label class="form__label">Телефон</label>
                 <input type="text" name="specialist-phone" placeholder="+7 (495) 588-42-88"
@@ -293,16 +292,24 @@
     <form method="POST" class="form pacient-form" id="pacient-form">
       <div class="form__content-container form__pacient-status-container" id="pacient-container">
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Ваше имя</label><input type="text" id="pacient-name"
-              name="pacient-name" placeholder="Евгений" class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">E-mail</label><input type="email" id="pacient-mail"
-              name="pacient-mail" placeholder="forexample@gmail.com" class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">Телефон</label><input type="text" id="pacient-phone"
-              name="pacient-phone" placeholder="+7 (495) 588-42-88"
-              class="form__input form__input-text form__input-text-phone" data-mask="phone" required>
+          <li class="form__list-item">
+            <label class="form__label">Ваше имя</label>
+            <input type="text" id="pacient-name" name="pacient-name" placeholder="Евгений"
+              class="form__input form__input-text _req _error">
           </li>
-          <li class="form__list-item"><label class="form__label">Кем вы являетесь</label>
-            <select class="form__input form__input-select" id="pacient-status" name="pacient-status" required>
+          <li class="form__list-item">
+            <label class="form__label">E-mail</label>
+            <input type="email" id="pacient-mail" name="pacient-mail" placeholder="forexample@gmail.com"
+              class="form__input form__input-text _req _error _email">
+          </li>
+          <li class="form__list-item">
+            <label class="form__label">Телефон</label>
+            <input type="text" id="pacient-phone" name="pacient-phone" placeholder="+7 (495) 588-42-88"
+              class="form__input form__input-text form__input-text-phone _req _error" data-mask="phone">
+          </li>
+          <li class="form__list-item">
+            <label class="form__label">Кем вы являетесь</label>
+            <select class="form__input form__input-select _req _error" id="pacient-status" name="pacient-status">
               <option value="Пациент">Пациент</option>
               <option value="Родственник пациента">Родственник пациента</option>
               <option value="Посетитель">Посетитель</option>
@@ -311,17 +318,25 @@
           </li>
         </ul>
         <ul class="form__list reset-list">
-          <li class="form__list-item"><label class="form__label">Страна</label><input type="text" id="pacient-country"
-              name="pacient-country" placeholder="Россия" class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">Регион, область</label><input type="text"
-              id="pacient-region" name="pacient-region" placeholder="Московская область"
-              class="form__input form__input-text" required></li>
-          <li class="form__list-item"><label class="form__label">Населенный пункт</label><input type="text"
-              id="pacient-city" name="pacient-city" placeholder="Москва" class="form__input form__input-text" required>
+          <li class="form__list-item">
+            <label class="form__label">Страна</label>
+            <input type="text" id="pacient-country" name="pacient-country" placeholder="Россия"
+              class="form__input form__input-text _req _error">
           </li>
-          <li class="form__list-item"><label class="form__label">Опишите НР</label><textarea
-              placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea"
-              id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr" required></textarea>
+          <li class="form__list-item">
+            <label class="form__label">Регион, область</label>
+            <input type="text" id="pacient-region" name="pacient-region" placeholder="Московская область"
+              class="form__input form__input-text _req _error">
+          </li>
+          <li class="form__list-item">
+            <label class="form__label">Населенный пункт</label>
+            <input type="text" id="pacient-city" name="pacient-city" placeholder="Москва"
+              class="form__input form__input-text _req _error">
+          </li>
+          <li class="form__list-item">
+            <label class="form__label">Опишите НР</label>
+            <textarea placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea _req _error"
+              id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr"></textarea>
           </li>
         </ul>
       </div>
@@ -329,16 +344,22 @@
       <p class="form__checkbox-mistake-text" id="pacient-mistake-text">Вы не согласились с правилами сайта.</p>
 
       <div class="form__agree-container">
-        <label class="form__checkbox-label" for="pacient-checkbox-1"><input class="form__checkbox"
-            id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1" required><span class="form__checkbox-text">Я
+        <label class="form__checkbox-label" for="pacient-checkbox-1">
+          <input class="form__checkbox _req _error" id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1">
+          <span class="form__checkbox-text">Я
             ознакомился и согласен с
             <a class="quiz__link form__agree-link" href="">Условиями использования
               Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
-              Сайта</a></span></label>
-        <label class="form__checkbox-label" for="pacient-checkbox-2"><input class="form__checkbox"
-            id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2" required><span class="form__checkbox-text">
+              Сайта</a>
+          </span>
+        </label>
+        <label class="form__checkbox-label" for="pacient-checkbox-2">
+          <input class="form__checkbox _req _error" id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2">
+          <span class="form__checkbox-text">
             Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
-              данных</a></span></label>
+              данных</a>
+          </span>
+        </label>
       </div>
 
       <button type="submit" class="form__button" id="pacient-button">Отправить</button>
@@ -356,14 +377,16 @@
     </div>
   </div>
 
+  <script src="ajax.js"></script>
   <script>
+    // Открытие аккордиона
     document.querySelectorAll('.form__accordion').forEach((el) => {
       el.addEventListener('click', () => {
 
         let content = el.nextElementSibling;
 
         if (content.style.maxHeight) {
-          document.querySelectorAll('.form__accordion-content').forEach((el) => el.style.display = null)
+          document.querySelectorAll('.form__accordion-content').forEach((el) => el.style.maxHeight = null)
         } else {
           document.querySelectorAll('.form__accordion-content').forEach((el) => el.style.maxHeight = null)
           content.style.maxHeight = content.scrollHeight + 'px'
@@ -372,7 +395,7 @@
       })
 
     })
-
+    // Открытие форм в соответствии с выбранным radio-button
     const specRadio = document.querySelector("#spec-radio");
     const pacientRadio = document.querySelector("#pacient-radio");
     const specForm = document.querySelector("#spec-form");
@@ -392,7 +415,7 @@
         pacientForm.style.display = "block";
       }
     });
-
+    // Деактивация полей в соответствии с полом пациента
     const pacientSexFemale = document.querySelector("#spec-pacient-female");
     const pacientSexMale = document.querySelector("#spec-pacient-male");
 
@@ -428,7 +451,7 @@
         console.log('123');
       }
     });
-    // asdsadasd
+    // Отображение ошибки при невыбранном checkbox
     const specialistButton = document.getElementById("specialist-button");
     const pacientButton = document.getElementById("pacient-button");
 
@@ -459,7 +482,7 @@
         pacientMistakeText.style.display = "block";
       }
     });
-
+    // Маска ввода телефона
     document.addEventListener('DOMContentLoaded', () => {
 
       const elements = document.querySelectorAll('[data-mask="phone"]') // ищем все поля с атрибутом data-mask="phone"

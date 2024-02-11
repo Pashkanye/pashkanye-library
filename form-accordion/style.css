@@ -549,3 +549,7 @@ a {
   line-height: 140%;
   color: var(--site-mistake);
 }
+
+.form__input._error {
+  box-shadow: 0 0 15px red;
+}
