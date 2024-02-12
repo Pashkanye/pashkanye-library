@@ -297,21 +297,21 @@
           <li class="form__list-item">
             <label class="form__label">Ваше имя</label>
             <input type="text" id="pacient-name" name="pacient-name" placeholder="Евгений"
-              class="form__input form__input-text _req" required>
+              class="form__input form__input-text _req">
           </li>
           <li class="form__list-item">
             <label class="form__label">E-mail</label>
-            <input type="email" id="pacient-mail" name="pacient-mail" placeholder="forexample@gmail.com"
-              class="form__input form__input-text _email _req" required>
+            <input type="text" id="pacient-mail" name="pacient-mail" placeholder="forexample@gmail.com"
+              class="form__input form__input-text _email _req">
           </li>
           <li class="form__list-item">
             <label class="form__label">Телефон</label>
             <input type="text" id="pacient-phone" name="pacient-phone" placeholder="+7 (495) 588-42-88"
-              class="form__input form__input-text form__input-text-phone _req" required data-mask="phone">
+              class="form__input form__input-text form__input-text-phone _req" data-mask="phone">
           </li>
           <li class="form__list-item">
             <label class="form__label">Кем вы являетесь</label>
-            <select class="form__input form__input-select _req" required id="pacient-status" name="pacient-status">
+            <select class="form__input form__input-select _req" id="pacient-status" name="pacient-status">
               <option value="Пациент">Пациент</option>
               <option value="Родственник пациента">Родственник пациента</option>
               <option value="Посетитель">Посетитель</option>
@@ -323,7 +323,7 @@
           <li class="form__list-item">
             <label class="form__label">Страна</label>
             <input type="text" id="pacient-country" name="pacient-country" placeholder="Россия"
-              class="form__input form__input-text _req" required list="country">
+              class="form__input form__input-text _req" list="country">
             <datalist id="country">
               <option>Австралия</option>
               <option>Австрия</option>
@@ -523,16 +523,16 @@
           <li class="form__list-item">
             <label class="form__label">Регион, область</label>
             <input type="text" id="pacient-region" name="pacient-region" placeholder="Московская область"
-              class="form__input form__input-text _req" required>
+              class="form__input form__input-text _req">
           </li>
           <li class="form__list-item">
             <label class="form__label">Населенный пункт</label>
             <input type="text" id="pacient-city" name="pacient-city" placeholder="Москва"
-              class="form__input form__input-text _req" required>
+              class="form__input form__input-text _req">
           </li>
           <li class="form__list-item">
             <label class="form__label">Опишите НР</label>
-            <textarea placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea _req" required
+            <textarea placeholder="Опишите ситуацию, симптомы..." class="form__input form__input-textarea _req"
               id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr"></textarea>
           </li>
         </ul>
@@ -542,8 +542,7 @@
 
       <div class="form__agree-container">
         <label class="form__checkbox-label" for="pacient-checkbox-1">
-          <input class="form__checkbox _req" required id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1"
-            checked>
+          <input class="form__checkbox _req" id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1" checked>
           <span class="form__checkbox-text">Я
             ознакомился и согласен с
             <a class="quiz__link form__agree-link" href="">Условиями использования
@@ -552,8 +551,7 @@
           </span>
         </label>
         <label class="form__checkbox-label" for="pacient-checkbox-2">
-          <input class="form__checkbox _req" required id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2"
-            checked>
+          <input class="form__checkbox _req" id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2" checked>
           <span class="form__checkbox-text">
             Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
               данных</a>
@@ -679,6 +677,46 @@
 
       } else {
         pacientMistakeText.style.display = "block";
+      }
+    });
+
+    specialistButton.addEventListener("click", () => {
+      if (specialistCheckbox1.checked) {
+
+        specialistCheckbox1.parentElement.classList.remove('_error')
+
+      } else {
+        specialistCheckbox1.parentElement.classList.add('_error')
+      }
+    });
+
+    specialistButton.addEventListener("click", () => {
+      if (specialistCheckbox2.checked) {
+
+        specialistCheckbox2.parentElement.classList.remove('_error')
+
+      } else {
+        specialistCheckbox2.parentElement.classList.add('_error')
+      }
+    });
+
+    pacientButton.addEventListener("click", () => {
+      if (pacientCheckbox1.checked) {
+
+        pacientCheckbox1.parentElement.classList.remove('_error')
+
+      } else {
+        pacientCheckbox1.parentElement.classList.add('_error')
+      }
+    });
+
+    pacientButton.addEventListener("click", () => {
+      if (pacientCheckbox2.checked) {
+
+        pacientCheckbox2.parentElement.classList.remove('_error')
+
+      } else {
+        pacientCheckbox2.parentElement.classList.add('_error')
       }
     });
     // Маска ввода телефона

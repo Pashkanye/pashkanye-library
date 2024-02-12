@@ -8,6 +8,29 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
 
     let error = formValidate(pacientForm);
+
+    let formData = new FormData(pacientForm);
+
+    if (error === 0) {
+      pacientForm.classList.add('_sending');
+      let response = await fetch('pacient-send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        let result = await response.json();
+        alert(result.message);
+        formPreview.innerHTML = '';
+        pacientForm.reset();
+        pacientForm.classList.remove('_sending');
+      } else {
+        alert("Ошибка");
+        pacientForm.classList.remove('_sending');
+      }
+    } else {
+      alert('Заполните обязательные поля')
+    }
+
   }
 
 
@@ -24,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
           formAddError(input);
           error++;
         }
-      } else if (input.getAttribute("type") === "checkbox" && input.checed === false) {
+      } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
         formAddError(input);
         error++;
       } else {
@@ -35,20 +58,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     }
+    return error;
   }
 
   function formAddError(input) {
-    input.parentElement.classlist.add('_error');
-    input.classlist.add('_error');
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
   }
 
   function formRemoveError(input) {
-    input.parentElement.classlist.remove('_error');
-    input.classlist.remove('_error');
+    input.parentElement.classList.remove('_error');
+    input.classList.remove('_error');
   }
   // Функция теста e-mail
   function emailTest(input) {
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
   }
 
 });

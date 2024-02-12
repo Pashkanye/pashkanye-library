@@ -283,6 +283,11 @@ a {
 /* Добавить цвет фона для кнопки, если она нажата (добавить .активный класс с JS), а при наведении на него курсора мыши (наведите курсор) */
 .form__accordion:hover {
   color: var(--site-hover-2);
+  border-color: var(--site-hover-2);
+}
+
+.form__accordion::after:hover {
+  background-image: url(./img/arrow-hover.svg);
 }
 
 /* Стиль аккордеон панели. Примечание: скрыто по умолчанию */
@@ -322,9 +327,28 @@ a {
 }
 
 .form__content-container {
+  position: relative;
   width: 100%;
   display: flex;
   gap: 40px;
+}
+
+.form__content-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(235, 235, 235, 0.2) url(./img/Rhombus.gif) center / 50px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease 0s;
+}
+
+._sending .form__content-container::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .form__pacient-status-container {
@@ -551,5 +575,13 @@ a {
 }
 
 .form__input._error {
-  box-shadow: 0 0 15px red;
+  border-color: var(--site-mistake);
+}
+
+._error .form__label {
+  color: var(--site-mistake);
+}
+
+._error .form__checkbox-text::before {
+  border-color: var(--site-mistake);
 }
