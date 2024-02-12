@@ -18,6 +18,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 input[type=date] {
   background: url("./img/calendar_16\ px.svg") no-repeat 100% 50%;
+  cursor: pointer;
 }
 
 .reset-list,
@@ -84,7 +85,7 @@ a {
   font-weight: 700;
   line-height: 110%;
   text-transform: uppercase;
-  color: #4B4E53;
+  color: var(--site-zagolovki);
 }
 
 .quiz__descr {
@@ -280,9 +281,8 @@ a {
 }
 
 /* Добавить цвет фона для кнопки, если она нажата (добавить .активный класс с JS), а при наведении на него курсора мыши (наведите курсор) */
-.active,
-.accordion:hover {
-  background-color: #ccc;
+.form__accordion:hover {
+  color: var(--site-hover-2);
 }
 
 /* Стиль аккордеон панели. Примечание: скрыто по умолчанию */
@@ -332,7 +332,7 @@ a {
 }
 
 .form__list {
-  width: calc(100% / 2 - 40px);
+  width: calc((100% - 40px) / 2);
   display: flex;
   flex-direction: column;
 }
@@ -468,8 +468,8 @@ a {
   border: none;
   border-radius: 5px;
   padding: 15px 65px;
-  background-color: #535961;
-  color: #fff;
+  background-color: var(--site-knopki);
+  color: var(--site-bg-osnovnoy);
   transition: background-color 0.2s ease-in-out;
 }
 
