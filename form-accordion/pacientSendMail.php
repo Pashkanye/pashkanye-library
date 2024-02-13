@@ -15,16 +15,15 @@ $mail->SMTPAuth   = true;
 //$mail->SMTPDebug = 2;
 
 // От кого
-// $mail->setFrom('sasha@1plus1.by', 'Паша Мэил Ру');
   // Настройки вашей почты
-  $mail->Host       = 'smtp.yandex.ru'; // SMTP сервера вашей почты
-  $mail->Username   = 'b2b@girlanda.by'; // Логин на почте
-  $mail->Password   = 'vwexnlblbujasvbb'; // Пароль на почте
+  $mail->Host       = '...'; // SMTP сервера вашей почты
+  $mail->Username   = 'b2b@mail.ru'; // Логин на почте
+  $mail->Password   = '***'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
-  $mail->setFrom('b2b@girlanda.by', 'Ваня Директор'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('b2b@mail.ru', 'Ваня Директор'); // Адрес самой почты и имя отправителя
 // Кому
-$mail->addAddress('pash.pahs@gmail.com');
+$mail->addAddress('vanya@gmail.com');
 // Тема письма
 $mail->Subject = 'Тема письма - тест';
 
