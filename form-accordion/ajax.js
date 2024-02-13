@@ -2,6 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const pacientForm = document.getElementById('pacient-form');
+  const config = {
+    method: 'POST',
+    body: formData
+  }
   pacientForm.addEventListener('submit', formSend);
 
   async function formSend(e) {
@@ -13,10 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (error === 0) {
       pacientForm.classList.add('_sending');
-      let response = await fetch('pacient-send-mail.php', {
-        method: 'POST',
-        body: formData
-      });
+      let response = await fetch('pacientSendMail.php', config);
       if (response.ok) {
         let result = await response.json();
         alert(result.message);
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         pacientForm.reset();
         pacientForm.classList.remove('_sending');
       } else {
-        alert("Ошибка");
+        alert("Ошибка JS" + response.status);
         pacientForm.classList.remove('_sending');
       }
     } else {
