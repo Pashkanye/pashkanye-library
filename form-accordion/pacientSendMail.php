@@ -1,70 +1,83 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
+// Файлы phpmailer
 require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/PHPMailer.php';
 
-$mail = new PHPMailer(true);
-$mail->CharSet = 'UTF-8';
-$mail->setLanguage('ru', 'PHPMailer/language/');
-$mail->IsHtml(true);
+// Переменные, которые отправляет пользователь
+$pacient_name = $_POST['pacient-name'];
+$pacient_mail = $_POST['pacient-mail'];
+$pacient_phone = $_POST['pacient-phone'];
+$pacient_status = $_POST['pacient-status'];
+$pacient_country = $_POST['pacient-country'];
+$pacient_region = $_POST['pacient-region'];
+$pacient_city = $_POST['pacient-city'];
+$pacient_unwanted_reaction_descr = $_POST['pacient-unwanted-reaction-descr'];
 
-$mail->isSMTP();   
-$mail->SMTPAuth   = true;
-//$mail->SMTPDebug = 2;
+// Формирование самого письма
+$title = "Заявление о НР Пациента";
+$body = "
+<h2>Заявление о НР Пациента</h2>
+<strong>Имя:</strong> $pacient_name<br><br>
+<strong>E-mail:</strong> $pacient_mail<br><br>
+<strong>Телефон:</strong> $pacient_phone<br><br>
+<strong>Кем является:</strong> $pacient_status<br><br>
+<strong>Страна:</strong> $pacient_country<br><br>
+<strong>Регион, область:</strong> $pacient_region<br><br>
+<strong>Населенный пункт</strong> $pacient_city<br><br>
+<strong>Описание НР:</strong> $pacient_unwanted_reaction_descr<br><br>
+";
 
-// От кого
+// Настройки PHPMailer
+$mail = new PHPMailer\PHPMailer\PHPMailer();
+try {
+  $mail->isSMTP();
+  $mail->CharSet = "UTF-8";
+  $mail->SMTPAuth   = true;
+  //$mail->SMTPDebug = 2;
+  $mail->Debugoutput = function ($str, $level) {
+    $GLOBALS['status'][] = $str;
+  };
+
   // Настройки вашей почты
-  $mail->Host       = '...'; // SMTP сервера вашей почты
-  $mail->Username   = 'b2b@mail.ru'; // Логин на почте
-  $mail->Password   = '***'; // Пароль на почте
-  $mail->SMTPSecure = 'ssl';
-  $mail->Port       = 465;
-  $mail->setFrom('b2b@mail.ru', 'Ваня Директор'); // Адрес самой почты и имя отправителя
-// Кому
-$mail->addAddress('vanya@gmail.com');
-// Тема письма
-$mail->Subject = 'Тема письма - тест';
+  $mail->Host       = 'smtp.yandex.ru'; // SMTP сервера вашей почты
+  $mail->Username   = 'b2b@girlanda.by'; // Логин на почте
+  $mail->Password   = 'vwexnlblbujasvbb'; // Пароль на почте
+  $mail->SMTPSecure = 'TLS';
+  $mail->Port       = 25;
+  $mail->setFrom('b2b@girlanda.by', 'Ваня Директор'); // Адрес самой почты и имя отправителя
 
-// Тело письма
-$body = '<h1>Заявление пациента о нежелательной реакции</h1>'
+  // Получатель письма
+  $mail->addAddress('ivan.yakubovich@gmail.com');
 
-if(trim(!empty($_POST['pacient-name']))){
-  $body.='<p><strong>Имя:</strong> '.$_POST['pacient-name'].'</p>';
-}
-if(trim(!empty($_POST['pacient-mail']))){
-  $body.='<p><strong>E-mail:</strong> '.$_POST['pacient-mail'].'</p>';
-}
-if(trim(!empty($_POST['pacient-phone']))){
-  $body.='<p><strong>Телефон:</strong> '.$_POST['pacient-phone'].'</p>';
-}
-if(trim(!empty($_POST['pacient-status']))){
-  $body.='<p><strong>Кем является:</strong> '.$_POST['pacient-status'].'</p>';
-}
-if(trim(!empty($_POST['pacient-country']))){
-  $body.='<p><strong>Страна:</strong> '.$_POST['pacient-country'].'</p>';
-}
-if(trim(!empty($_POST['pacient-region']))){
-  $body.='<p><strong>Регион, область:</strong> '.$_POST['pacient-region'].'</p>';
-}
-if(trim(!empty($_POST['pacient-city']))){
-  $body.='<p><strong>Населенный пункт</strong> '.$_POST['pacient-city'].'</p>';
-}
-if(trim(!empty($_POST['pacient-unwanted-reaction-descr']))){
-  $body.='<p><strong>Описание НР:</strong> '.$_POST['pacient-unwanted-reaction-descr'].'</p>';
-}
+  // Прикрипление файлов к письму
+  if (!empty($file['name'][0])) {
+    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
+      $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
+      $filename = $file['name'][$ct];
+      if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
+        $mail->addAttachment($uploadfile, $filename);
+        $rfile[] = "Файл $filename прикреплён";
+      } else {
+        $rfile[] = "Не удалось прикрепить файл $filename";
+      }
+    }
+  }
+  // Отправка сообщения
+  $mail->isHTML(true);
+  $mail->Subject = $title;
+  $mail->Body = $body;
 
-$mail->Body = $body;
-
-if (!$mail->send()) {
-  $message = 'Ошибка PHP';
-} else {
-  $message = 'Данные отправлены!';
+  // Проверяем отравленность сообщения
+  if ($mail->send()) {
+    $result = "success";
+  } else {
+    $result = "error";
+  }
+} catch (Exception $e) {
+  $result = "error";
+  $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
 
-$response = ['message' => $message];
-
-header('Content-type: application/json');
-echo json_encode($response);
-?>
+// Отображение результата
+echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status, "message" => "Сообщение успешно отправлено."]);

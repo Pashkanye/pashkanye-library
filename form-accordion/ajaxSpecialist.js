@@ -1,32 +1,32 @@
 "use strict"
 
 document.addEventListener('DOMContentLoaded', function () {
-  const pacientForm = document.getElementById('pacient-form');
-  const config = {
-    method: 'POST',
-    body: formData
-  }
-  pacientForm.addEventListener('submit', formSend);
+  const specialistForm = document.getElementById('spec-form');
+  specialistForm.addEventListener('submit', formSend1);
 
-  async function formSend(e) {
+  async function formSend1(e) {
     e.preventDefault();
 
-    let error = formValidate(pacientForm);
+    let error = formValidate(specialistForm);
 
-    let formData = new FormData(pacientForm);
+    let formData1 = new FormData(specialistForm);
 
     if (error === 0) {
-      pacientForm.classList.add('_sending');
-      let response = await fetch('pacientSendMail.php', config);
+      specialistForm.classList.add('_sending');
+      let response = await fetch('specialistSendMail.php', {
+        method: 'POST',
+        body: formData1
+      });
       if (response.ok) {
         let result = await response.json();
+        specialistForm.classList.remove('_sending');
+        specialistForm.reset();
         alert(result.message);
-        formPreview.innerHTML = '';
-        pacientForm.reset();
-        pacientForm.classList.remove('_sending');
+        // formPreview.innerHTML = '';
+
       } else {
         alert("Ошибка JS" + response.status);
-        pacientForm.classList.remove('_sending');
+        specialistForm.classList.remove('_sending');
       }
     } else {
       alert('Заполните обязательные поля')
@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  function formValidate(pacientForm) {
+  function formValidate(specialistForm) {
     let error = 0;
-    let formReq = document.querySelectorAll('._req');
+    let formReq1 = document.querySelectorAll('._req1');
 
-    for (let index = 0; index < formReq.length; index++) {
-      const input = formReq[index];
+    for (let index = 0; index < formReq1.length; index++) {
+      const input = formReq1[index];
       formRemoveError(input);
 
-      if (input.classList.contains('_email')) {
+      if (input.classList.contains('_email1')) {
         if (emailTest(input)) {
           formAddError(input);
           error++;
