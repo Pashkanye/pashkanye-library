@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const pacientForm = document.getElementById('pacient-form');
   pacientForm.addEventListener('submit', formSend2);
+  const popup = document.getElementById('popup');
 
   async function formSend2(e) {
     e.preventDefault();
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (response.ok) {
         let result = await response.json();
         pacientForm.classList.remove('_sending');
+        popup.classList.add('_block');
         pacientForm.reset();
         alert(result.message);
         // formPreview.innerHTML = '';

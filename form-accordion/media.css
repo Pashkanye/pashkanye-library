@@ -31,6 +31,10 @@
     height: 100%;
   }
 
+  .popup__container {
+    padding: 65px 25px;
+  }
+
 }
 
 @media screen and (max-width: 667px) {
@@ -103,6 +107,27 @@
 
   .form__checkbox-mistake-text {
     font-size: 14px;
+  }
+
+  .popup__block {
+    min-width: 248px;
+    min-height: 273px;
+    background-size: 30px 30px;
+    background-position: top 10px right 10px;
+  }
+
+  .popup__container {
+    padding: 65px 25px;
+    background-size: 30px 30px;
+    background-position: bottom 10px left 10px;
+  }
+
+  .popup__text {
+    font-size: 15px;
+  }
+
+  .popup__button {
+    max-width: 189px;
   }
 
 }

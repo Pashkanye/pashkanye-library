@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const specialistForm = document.getElementById('spec-form');
   specialistForm.addEventListener('submit', formSend1);
+  const popup = document.getElementById('popup');
 
   async function formSend1(e) {
     e.preventDefault();
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (response.ok) {
         let result = await response.json();
         specialistForm.classList.remove('_sending');
+        popup.classList.add('_block');
         specialistForm.reset();
         alert(result.message);
         // formPreview.innerHTML = '';

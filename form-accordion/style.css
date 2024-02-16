@@ -5,6 +5,10 @@
   font-family: 'Open Sans';
 }
 
+body {
+  margin: 0;
+}
+
 input,
 button,
 textarea,
@@ -17,7 +21,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 input[type=date] {
-  background: url("./img/calendar_16\ px.svg") no-repeat 100% 50%;
+  background: url("/img/calendar_16\ px.svg") no-repeat 100% 50%;
   cursor: pointer;
 }
 
@@ -53,7 +57,7 @@ a {
 }
 
 .quiz {
-  background-image: url(./img/background-img.svg);
+  background-image: url(/img/background-img.svg);
   background-repeat: no-repeat;
   background-position: top -50px right;
 }
@@ -160,7 +164,7 @@ a {
 }
 
 .form__radio:disabled+.form__radio-label-text::before {
-  background-image: url(./img/radio-disabled.svg);
+  background-image: url(/img/radio-disabled.svg);
 }
 
 .form__radio-label {
@@ -189,7 +193,7 @@ a {
   top: 50%;
   width: 20px;
   height: 20px;
-  background-image: url(./img/radio-circle.svg);
+  background-image: url(/img/radio-circle.svg);
   background-position: center;
   background-repeat: no-repeat;
   transform: translateY(-50%);
@@ -203,7 +207,7 @@ a {
   top: 50%;
   width: 12px;
   height: 12px;
-  background-image: url(./img/radio-checked.svg);
+  background-image: url(/img/radio-checked.svg);
   background-position: center;
   background-repeat: no-repeat;
   transform: translateY(-50%);
@@ -276,7 +280,7 @@ a {
   height: 24px;
   right: 0%;
   top: 50%;
-  background-image: url(./img/arrow.svg);
+  background-image: url(/img/arrow.svg);
   transform: rotate(0deg);
 }
 
@@ -287,7 +291,7 @@ a {
 }
 
 .form__accordion::after:hover {
-  background-image: url(./img/arrow-hover.svg);
+  background-image: url(/img/arrow-hover.svg);
 }
 
 /* Стиль аккордеон панели. Примечание: скрыто по умолчанию */
@@ -340,7 +344,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(235, 235, 235, 0.2) url(./img/Rhombus.gif) center / 50px no-repeat;
+  background: var(--site-glow-2) url(/img/Rhombus.gif) center / 50px no-repeat;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s ease 0s;
@@ -541,7 +545,7 @@ a {
   top: 50%;
   width: 20px;
   height: 20px;
-  background-image: url(./img/checked.svg);
+  background-image: url(/img/checked.svg);
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
@@ -584,4 +588,72 @@ a {
 
 ._error .form__checkbox-text::before {
   border-color: var(--site-mistake);
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: var(--site-glow-2);
+  display: none;
+}
+
+.popup__block {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 248px;
+  min-height: 273px;
+  max-width: 691px;
+  max-height: 330px;
+  background-color: var(--site-bg-osnovnoy);
+  border-radius: 5px;
+  background-image: url(/img/popup-background.svg);
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-position: top 30px right 30px;
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 110px 30px 75px;
+  background-image: url(/img/popup-background.svg);
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-position: bottom 30px left 30px;
+}
+
+.popup__text {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--site-bg-dopolnitelnyy);
+}
+
+.popup__text:nth-child(2) {
+  margin-bottom: 40px;
+}
+
+.popup__button {
+  padding: 15px 40px;
+  max-width: 178px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+}
+
+._block {
+  display: block;
 }

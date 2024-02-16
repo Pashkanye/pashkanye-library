@@ -7,592 +7,613 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./media.css">
-  <script src="./imask.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="media.css">
+  <script src="imask.js"></script>
   <title>Sipe Consulting quiz</title>
 </head>
 
-<body class="quiz">
-  <div class="container">
-    <p class="quiz__tree-path"><a href="" class="quiz__link quiz__prev-link">Главная</a> / <a href=""
-        class="quiz__link quiz__act-link">Нежелательные
-        реакции</a></p>
-    <h1 class="quiz__title">Нежелательные реакции</h1>
-    <p class="quiz__descr">В&nbsp;случае, если вам стало известно о&nbsp;нежелательных реакциях при применении
-      лекарственных препаратов или об&nbsp;иных событиях, которые могут быть связаны с&nbsp;безопасностью препаратов,
-      мы&nbsp;просим вас поделиться этой информацией любым удобным для вас способом:</p>
-    <h3 class="quiz__subtitle">Заполните форму на сайте.</h3>
-    <p class="quiz__form-text">Для начала укажите, пожалуйста, кем вы являетесь:</p>
-
-
-
-
-    <div class="form__status-choice-container">
-
-      <div class="form__choice-button">
-        <input class="form__radio form__choice-radio" type="radio" id="spec-radio" name="status" value="specialist" />
-        <label class="form__radio-label form__choice-label" id="#test" for="spec-radio">
-          <span class="form__choice-label-text form__radio-label-text">Специалист здравоохранения</span>
-        </label>
-      </div>
-
-
-      <div class="form__choice-button">
-        <input class="form__radio form__choice-radio" type="radio" id="pacient-radio" name="status" value="pacient" />
-        <label class="form__radio-label form__choice-label" for="pacient-radio">
-          <span class="form__choice-label-text form__radio-label-text">Пациент или иное лицо</span>
-        </label>
+<body>
+  <div class="quiz">
+    <div class="popup" id="popup">
+      <div class="popup__block">
+        <div class="popup__container">
+          <p class="popup__text">Благодарим!</p>
+          <p class="popup__text">Ваше сообщение успешно отправлено.</p>
+          <a href="" class="popup__button form__button">На главную</a>
+        </div>
       </div>
     </div>
-    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form specialist-form" id="spec-form">
-      <p class="quiz__preform-text">Поля, отмеченные <span class="quiz__preform-text-star">*</span>, — обязательны
-        к заполнению.</p>
+    <div class="container">
+      <p class="quiz__tree-path"><a href="" class="quiz__link quiz__prev-link">Главная</a> / <a href=""
+          class="quiz__link quiz__act-link">Нежелательные
+          реакции</a></p>
+      <h1 class="quiz__title">Нежелательные реакции</h1>
+      <p class="quiz__descr">В&nbsp;случае, если вам стало известно о&nbsp;нежелательных реакциях при применении
+        лекарственных препаратов или об&nbsp;иных событиях, которые могут быть связаны с&nbsp;безопасностью препаратов,
+        мы&nbsp;просим вас поделиться этой информацией любым удобным для вас способом:</p>
+      <h3 class="quiz__subtitle">Заполните форму на сайте.</h3>
+      <p class="quiz__form-text">Для начала укажите, пожалуйста, кем вы являетесь:</p>
 
-      <div class="form__accordion-container" id="spec-container">
-        <div class="form__accordion">Шаг 1. Лицо, сообщающее о НР</div>
-        <div class="form__content-container form__accordion-content form__specialist-status-container-1">
-          <div class="form__accordion-block">
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Ваше имя *</label>
-                <input type="text" name="specialist-name" placeholder="Евгений"
-                  class="form__input form__input-text _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">Должность *</label>
-                <input type="text" name="specialist-job" placeholder="Врач, медицинская сестра, провизор и т.д."
-                  class="form__input form__input-text _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">E-mail *</label>
-                <input type="email" name="specialist-email" placeholder="forexample@gmail.com"
-                  class="form__input form__input-text _email1 _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">Телефон</label>
-                <input type="text" name="specialist-phone" placeholder="+7 (495) 588-42-88"
-                  class="form__input form__input-text form__input-text-phone" id="1" data-mask="phone">
-              </li>
-            </ul>
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Страна *</label>
-                <input type="text" name="specialist-country" placeholder="Россия"
-                  class="form__input form__input-text _req1" list="country">
-              </li>
-              <li class="form__list-item"><label class="form__label">Регион, область *</label>
-                <input type="text" name="specialist-region" placeholder="Московская область"
-                  class="form__input form__input-text _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">Населенный пункт *</label>
-                <input type="text" name="specialist-city" placeholder="Москва"
-                  class="form__input form__input-text _req1">
-              </li>
-            </ul>
+
+
+
+      <div class="form__status-choice-container">
+
+        <div class="form__choice-button">
+          <input class="form__radio form__choice-radio" type="checkbox" id="spec-radio" name="status"
+            value="specialist" />
+          <label class="form__radio-label form__choice-label" id="#test" for="spec-radio">
+            <span class="form__choice-label-text form__radio-label-text">Специалист здравоохранения</span>
+          </label>
+        </div>
+
+
+        <div class="form__choice-button">
+          <input class="form__radio form__choice-radio" type="checkbox" id="pacient-radio" name="status"
+            value="pacient" />
+          <label class="form__radio-label form__choice-label" for="pacient-radio">
+            <span class="form__choice-label-text form__radio-label-text">Пациент или иное лицо</span>
+          </label>
+        </div>
+      </div>
+      <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form specialist-form"
+        id="spec-form">
+        <p class="quiz__preform-text">Поля, отмеченные <span class="quiz__preform-text-star">*</span>, — обязательны
+          к заполнению.</p>
+
+        <div class="form__accordion-container" id="spec-container">
+          <div class="form__accordion">Шаг 1. Лицо, сообщающее о НР</div>
+          <div class="form__content-container form__accordion-content form__specialist-status-container-1">
+            <div class="form__accordion-block">
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Ваше имя *</label>
+                  <input type="text" name="specialist-name" placeholder="Евгений"
+                    class="form__input form__input-text _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">Должность *</label>
+                  <input type="text" name="specialist-job" placeholder="Врач, медицинская сестра, провизор и т.д."
+                    class="form__input form__input-text _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">E-mail *</label>
+                  <input type="email" name="specialist-email" placeholder="forexample@gmail.com"
+                    class="form__input form__input-text _email1 _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">Телефон</label>
+                  <input type="text" name="specialist-phone" placeholder="+7 (495) 588-42-88"
+                    class="form__input form__input-text form__input-text-phone" id="1" data-mask="phone">
+                </li>
+              </ul>
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Страна *</label>
+                  <input type="text" name="specialist-country" placeholder="Россия"
+                    class="form__input form__input-text _req1" list="country">
+                </li>
+                <li class="form__list-item"><label class="form__label">Регион, область *</label>
+                  <input type="text" name="specialist-region" placeholder="Московская область"
+                    class="form__input form__input-text _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">Населенный пункт *</label>
+                  <input type="text" name="specialist-city" placeholder="Москва"
+                    class="form__input form__input-text _req1">
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form__accordion">Шаг 2. Информация о пациенте</div>
+          <div class="form__content-container form__accordion-content form__specialist-status-container-2">
+            <div class="form__accordion-block">
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Инициалы *</label>
+                  <input type="text" name="spec-pacient-fio" placeholder="ФИО"
+                    class="form__input form__input-text _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">Номер амбулаторной карты или история
+                    болезни</label>
+                  <input type="text" name="spec-pacient-medcart-num" placeholder="238"
+                    class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Возраст</label>
+                  <input type="text" name="spec-pacient-age" placeholder="34" class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Вес</label>
+                  <input type="text" name="spec-pacient-weight" placeholder="57" class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Пол</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-male" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-male"
+                        value="Мужчина"><span class="form__radio-label-text">
+                        Мужчина</span></label>
+                    <label for="spec-pacient-female" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-female"
+                        value="Женщина"><span class="form__radio-label-text"> Женщина</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item"><label class="form__label" id="pregnancy-label">Беременность</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-preg-yes" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-yes"
+                        value="Да"><span class="form__radio-label-text"> Да</span></label>
+                    <label for="spec-pacient-preg-no" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-no"
+                        value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                    <label for="spec-pacient-preg-unknown" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-pregnancy"
+                        id="spec-pacient-preg-unknown" value="Неизвестно"><span class="form__radio-label-text">
+                        Неизвестно</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item" id="pregnancy-text">
+                  <input type="text" name="spec-pacient-pregnancy-time" id="spec-pacient-pregnancy-time"
+                    placeholder="14 недель" class="form__input form__input-text" disabled><label
+                    class="form__label">Срок
+                    беременности</label>
+                </li>
+              </ul>
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Лечение</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-therapy-ambul" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-therapy"
+                        id="spec-pacient-therapy-ambul" value="Амбулаторное"><span class="form__radio-label-text">
+                        Амбулаторное</span></label>
+                    <label for="spec-pacient-therapy-selfheal" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-therapy"
+                        id="spec-pacient-therapy-selfheal" value="Самолечение"><span class="form__radio-label-text">
+                        Самолечение</span></label>
+                  </div>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-therapy-station" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-therapy"
+                        id="spec-pacient-therapy-station" value="Стационарное"><span class="form__radio-label-text">
+                        Стационарное</span></label>
+                    <label for="spec-pacient-therapy-unknown" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-therapy"
+                        id="spec-pacient-therapy-unknown" value="Неизвестно"><span class="form__radio-label-text">
+                        Неизвестно</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item"><label class="form__label">Нарушение функции печени</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-liver-yes" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-yes"
+                        value="Да"><span class="form__radio-label-text"> Да</span></label>
+                    <label for="spec-pacient-liver-no" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-no"
+                        value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                    <label for="spec-pacient-liver-unknown" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-unknown"
+                        value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item"><label class="form__label">Нарушении функции почек</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-kidney-yes" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-yes"
+                        value="Да"><span class="form__radio-label-text"> Да</span></label>
+                    <label for="spec-pacient-kidney-no" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-no"
+                        value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                    <label for="spec-pacient-kidney-unknown" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-kidney"
+                        id="spec-pacient-kidney-unknown" value="Неизвестно"><span class="form__radio-label-text">
+                        Неизвестно</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item"><label class="form__label">Аллергия</label>
+                  <div class="form__container-flex">
+                    <label for="spec-pacient-allergy-yes" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-yes"
+                        value="Да"><span class="form__radio-label-text"> Да</span></label>
+                    <label for="spec-pacient-allergy-no" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-no"
+                        value="Нет"><span class="form__radio-label-text"> Нет</span></label>
+                    <label for="spec-pacient-allergy-unknown" class="form__radio-label form__radio-label-inside">
+                      <input class="form__radio" type="radio" name="spec-pacient-allergy"
+                        id="spec-pacient-allergy-unknown" value="Неизвестно"><span class="form__radio-label-text">
+                        Неизвестно</span></label>
+                  </div>
+                </li>
+                <li class="form__list-item"><label class="form__label">Сопутствующие заболевания</label>
+                  <input type="text" placeholder="Укажите болезни" class="form__input form__input-text"
+                    name="spec-pacient-accompanying-illnesses">
+                </li>
+                <li class="form__list-item"><label class="form__label">Препараты, принимаемые в течение последних 3-х
+                    месяцев</label>
+                  <input type="text" name="spec-pacient-last-drugs" placeholder="Название препаратов"
+                    class="form__input form__input-text">
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form__accordion">Шаг 3. Информация о препарате, вызвавшем НР</div>
+          <div class="form__content-container form__accordion-content form__specialist-status-container-3">
+            <div class="form__accordion-block">
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Название *</label>
+                  <input type="text" name="spec-pacient-drug-name" placeholder="Амброксол"
+                    class="form__input form__input-text _req1">
+                </li>
+                <li class="form__list-item"><label class="form__label">Показание для приёма</label>
+                  <input type="text" name="spec-pacient-indication-for-use-drug" placeholder="Кашель"
+                    class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Путь введения</label>
+                  <select class="form__input form__input-select" name="spec-pacient-way-of-injection-drug">
+                    <option value="Внутрь">Внутрь</option>
+                    <option value="Ингаляционно">Ингаляционно</option>
+                    <option value="Внутримышечно">Внутримышечно</option>
+                    <option value="Внутривенно">Внутривенно</option>
+                    <option value="Наружно">Наружно</option>
+                    <option value="Другое">Другое</option>
+                  </select>
+                </li>
+                <li class="form__list-item"><label class="form__label">Доза</label>
+                  <input type="text" name="spec-pacient-drug-dose" placeholder="1 таб. 0.25 мг 3 раза в день"
+                    class="form__input form__input-text">
+                </li>
+              </ul>
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Срок годности</label>
+                  <input type="text" name="spec-pacient-drug-exp-date" placeholder="2023-05-09 - 2027-05-09"
+                    class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Серия</label>
+                  <input type="text" name="spec-pacient-drug-series" placeholder="123567"
+                    class="form__input form__input-text">
+                </li>
+                <li class="form__list-item"><label class="form__label">Дата начала терапии</label>
+                  <input type="date" class="form__input form__input-text" name="spec-pacient-start-drug-use-date">
+                </li>
+                <li class="form__list-item"><label class="form__label">Дата последнего приёма до НР</label>
+                  <input type="date" class="form__input form__input-text" name="spec-pacient-end-drug-use-date">
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form__accordion">Шаг 4. Описание НР</div>
+          <div class="form__content-container form__accordion-content form__specialist-status-container-4">
+            <div class="form__accordion-block">
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Опишите НР *</label><textarea
+                    class="form__input form__input-textarea _req1"
+                    name="spec-pacient-unwanted-reaction-desc"></textarea>
+                </li>
+              </ul>
+              <ul class="form__list reset-list">
+                <li class="form__list-item"><label class="form__label">Дата начала НР</label>
+                  <input type="date" class="form__input form__input-text"
+                    name="spec-pacient-unwanted-reaction-start-date">
+                </li>
+                <li class="form__list-item"><label class="form__label">Дата окончания НР</label>
+                  <input type="date" class="form__input form__input-text"
+                    name="spec-pacient-unwanted-reaction-end-date">
+                </li>
+                <li class="form__list-item"><label class="form__label">Исход НР</label>
+                  <select class="form__input form__input-select" name="spec-pacient-unwanted-reaction-result">
+                    <option value="Выздоровление без последствий">Выздоровление без последствий</option>
+                    <option value="Выздоровление с последствиями">Выздоровление с последствиями</option>
+                    <option value="Улучшение состояния">Улучшение состояния</option>
+                    <option value="Состояние без изменений">Состояние без изменений</option>
+                    <option value="Смерть">Смерть</option>
+                    <option value="Неизвестно">Неизвестно</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="form__accordion">Шаг 2. Информация о пациенте</div>
-        <div class="form__content-container form__accordion-content form__specialist-status-container-2">
-          <div class="form__accordion-block">
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Инициалы *</label>
-                <input type="text" name="spec-pacient-fio" placeholder="ФИО" class="form__input form__input-text _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">Номер амбулаторной карты или история
-                  болезни</label>
-                <input type="text" name="spec-pacient-medcart-num" placeholder="238"
-                  class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Возраст</label>
-                <input type="text" name="spec-pacient-age" placeholder="34" class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Вес</label>
-                <input type="text" name="spec-pacient-weight" placeholder="57" class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Пол</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-male" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-male"
-                      value="Мужчина"><span class="form__radio-label-text">
-                      Мужчина</span></label>
-                  <label for="spec-pacient-female" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-sex" id="spec-pacient-female"
-                      value="Женщина"><span class="form__radio-label-text"> Женщина</span></label>
-                </div>
-              </li>
-              <li class="form__list-item"><label class="form__label" id="pregnancy-label">Беременность</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-preg-yes" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-yes"
-                      value="Да"><span class="form__radio-label-text"> Да</span></label>
-                  <label for="spec-pacient-preg-no" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-no"
-                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
-                  <label for="spec-pacient-preg-unknown" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-pregnancy" id="spec-pacient-preg-unknown"
-                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
-                </div>
-              </li>
-              <li class="form__list-item" id="pregnancy-text">
-                <input type="text" name="spec-pacient-pregnancy-time" id="spec-pacient-pregnancy-time"
-                  placeholder="14 недель" class="form__input form__input-text" disabled><label class="form__label">Срок
-                  беременности</label>
-              </li>
-            </ul>
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Лечение</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-therapy-ambul" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-therapy" id="spec-pacient-therapy-ambul"
-                      value="Амбулаторное"><span class="form__radio-label-text"> Амбулаторное</span></label>
-                  <label for="spec-pacient-therapy-selfheal" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-therapy"
-                      id="spec-pacient-therapy-selfheal" value="Самолечение"><span class="form__radio-label-text">
-                      Самолечение</span></label>
-                </div>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-therapy-station" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-therapy"
-                      id="spec-pacient-therapy-station" value="Стационарное"><span class="form__radio-label-text">
-                      Стационарное</span></label>
-                  <label for="spec-pacient-therapy-unknown" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-therapy"
-                      id="spec-pacient-therapy-unknown" value="Неизвестно"><span class="form__radio-label-text">
-                      Неизвестно</span></label>
-                </div>
-              </li>
-              <li class="form__list-item"><label class="form__label">Нарушение функции печени</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-liver-yes" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-yes"
-                      value="Да"><span class="form__radio-label-text"> Да</span></label>
-                  <label for="spec-pacient-liver-no" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-no"
-                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
-                  <label for="spec-pacient-liver-unknown" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-liver" id="spec-pacient-liver-unknown"
-                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
-                </div>
-              </li>
-              <li class="form__list-item"><label class="form__label">Нарушении функции почек</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-kidney-yes" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-yes"
-                      value="Да"><span class="form__radio-label-text"> Да</span></label>
-                  <label for="spec-pacient-kidney-no" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-no"
-                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
-                  <label for="spec-pacient-kidney-unknown" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-kidney" id="spec-pacient-kidney-unknown"
-                      value="Неизвестно"><span class="form__radio-label-text"> Неизвестно</span></label>
-                </div>
-              </li>
-              <li class="form__list-item"><label class="form__label">Аллергия</label>
-                <div class="form__container-flex">
-                  <label for="spec-pacient-allergy-yes" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-yes"
-                      value="Да"><span class="form__radio-label-text"> Да</span></label>
-                  <label for="spec-pacient-allergy-no" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-allergy" id="spec-pacient-allergy-no"
-                      value="Нет"><span class="form__radio-label-text"> Нет</span></label>
-                  <label for="spec-pacient-allergy-unknown" class="form__radio-label form__radio-label-inside">
-                    <input class="form__radio" type="radio" name="spec-pacient-allergy"
-                      id="spec-pacient-allergy-unknown" value="Неизвестно"><span class="form__radio-label-text">
-                      Неизвестно</span></label>
-                </div>
-              </li>
-              <li class="form__list-item"><label class="form__label">Сопутствующие заболевания</label>
-                <input type="text" placeholder="Укажите болезни" class="form__input form__input-text"
-                  name="spec-pacient-accompanying-illnesses">
-              </li>
-              <li class="form__list-item"><label class="form__label">Препараты, принимаемые в течение последних 3-х
-                  месяцев</label>
-                <input type="text" name="spec-pacient-last-drugs" placeholder="Название препаратов"
-                  class="form__input form__input-text">
-              </li>
-            </ul>
-          </div>
+        <p class="form__checkbox-mistake-text" id="specialist-mistake-text">Вы не согласились с правилами сайта.</p>
+
+        <div class="form__agree-container">
+          <label class="form__checkbox-label" for="specialist-checkbox-1"><input class="form__checkbox"
+              id="specialist-checkbox-1" type="checkbox" name="specialist-checkbox-1" checked><span
+              class="form__checkbox-text">Я ознакомился и
+              согласен с <a class="quiz__link form__agree-link" href="">Условиями использования
+                Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
+                Сайта</a></span></label>
+          <label class="form__checkbox-label" for="specialist-checkbox-2"><input class="form__checkbox"
+              id="specialist-checkbox-2" type="checkbox" name="specialist-checkbox-2" checked><span
+              class="form__checkbox-text">
+              Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
+                данных</a></span></label>
         </div>
 
-        <div class="form__accordion">Шаг 3. Информация о препарате, вызвавшем НР</div>
-        <div class="form__content-container form__accordion-content form__specialist-status-container-3">
-          <div class="form__accordion-block">
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Название *</label>
-                <input type="text" name="spec-pacient-drug-name" placeholder="Амброксол"
-                  class="form__input form__input-text _req1">
-              </li>
-              <li class="form__list-item"><label class="form__label">Показание для приёма</label>
-                <input type="text" name="spec-pacient-indication-for-use-drug" placeholder="Кашель"
-                  class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Путь введения</label>
-                <select class="form__input form__input-select" name="spec-pacient-way-of-injection-drug">
-                  <option value="Внутрь">Внутрь</option>
-                  <option value="Ингаляционно">Ингаляционно</option>
-                  <option value="Внутримышечно">Внутримышечно</option>
-                  <option value="Внутривенно">Внутривенно</option>
-                  <option value="Наружно">Наружно</option>
-                  <option value="Другое">Другое</option>
-                </select>
-              </li>
-              <li class="form__list-item"><label class="form__label">Доза</label>
-                <input type="text" name="spec-pacient-drug-dose" placeholder="1 таб. 0.25 мг 3 раза в день"
-                  class="form__input form__input-text">
-              </li>
-            </ul>
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Срок годности</label>
-                <input type="text" name="spec-pacient-drug-exp-date" placeholder="2023-05-09 - 2027-05-09"
-                  class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Серия</label>
-                <input type="text" name="spec-pacient-drug-series" placeholder="123567"
-                  class="form__input form__input-text">
-              </li>
-              <li class="form__list-item"><label class="form__label">Дата начала терапии</label>
-                <input type="date" class="form__input form__input-text" name="spec-pacient-start-drug-use-date">
-              </li>
-              <li class="form__list-item"><label class="form__label">Дата последнего приёма до НР</label>
-                <input type="date" class="form__input form__input-text" name="spec-pacient-end-drug-use-date">
-              </li>
-            </ul>
-          </div>
+        <button type="submit" class="form__button" id="specialist-button">Отправить</button>
+
+      </form>
+
+      <form method="POST" class="form " id="pacient-form">
+        <div class="form__content-container form__pacient-status-container" id="pacient-container">
+          <ul class="form__list reset-list">
+            <li class="form__list-item">
+              <label class="form__label">Ваше имя</label>
+              <input type="text" id="pacient-name" name="pacient-name" placeholder="Евгений"
+                class="form__input form__input-text _req2">
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">E-mail</label>
+              <input type="text" id="pacient-mail" name="pacient-mail" placeholder="forexample@gmail.com"
+                class="form__input form__input-text _email2 _req2">
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">Телефон</label>
+              <input type="text" id="pacient-phone" name="pacient-phone" placeholder="+7 (495) 588-42-88"
+                class="form__input form__input-text form__input-text-phone _req2" data-mask="phone">
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">Кем вы являетесь</label>
+              <select class="form__input form__input-select _req2" id="pacient-status" name="pacient-status">
+                <option value="Пациент">Пациент</option>
+                <option value="Родственник пациента">Родственник пациента</option>
+                <option value="Посетитель">Посетитель</option>
+                <option value="Другое">Другое</option>
+              </select>
+            </li>
+          </ul>
+          <ul class="form__list reset-list">
+            <li class="form__list-item">
+              <label class="form__label">Страна</label>
+              <input type="text" id="pacient-country" name="pacient-country" placeholder="Россия"
+                class="form__input form__input-text _req2" list="country">
+              <datalist id="country">
+                <option>Австралия</option>
+                <option>Австрия</option>
+                <option>Азербайджан</option>
+                <option>Албания</option>
+                <option>Алжир</option>
+                <option>Ангола</option>
+                <option>Андорра</option>
+                <option>Антигуа и Барбуда</option>
+                <option>Аргентина</option>
+                <option>Армения</option>
+                <option>Афганистан</option>
+                <option>Багамы</option>
+                <option>Бангладеш</option>
+                <option>Барбадос</option>
+                <option>Бахрейн</option>
+                <option>Белиз</option>
+                <option>Беларусь</option>
+                <option>Бельгия</option>
+                <option>Бенин</option>
+                <option>Болгария</option>
+                <option>Боливия</option>
+                <option>Босния и Герцеговина</option>
+                <option>Ботсвана</option>
+                <option>Бразилия</option>
+                <option>Бруней</option>
+                <option>Буркина-Фасо</option>
+                <option>Бурунди</option>
+                <option>Бутан</option>
+                <option>Вануату</option>
+                <option>Великобритания</option>
+                <option>Венгрия</option>
+                <option>Венесуэла</option>
+                <option>Восточный Тимор</option>
+                <option>Вьетнам</option>
+                <option>Габон</option>
+                <option>Гаити</option>
+                <option>Гайана</option>
+                <option>Гамбия</option>
+                <option>Гана</option>
+                <option>Гватемала</option>
+                <option>Гвинея</option>
+                <option>Гвинея-Бисау</option>
+                <option>Германия</option>
+                <option>Гондурас</option>
+                <option>Гренада</option>
+                <option>Греция</option>
+                <option>Грузия</option>
+                <option>Дания</option>
+                <option>Джибути</option>
+                <option>Доминика</option>
+                <option>Доминикана</option>
+                <option>Египет</option>
+                <option>Замбия</option>
+                <option>Зимбабве</option>
+                <option>Израиль</option>
+                <option>Индия</option>
+                <option>Индонезия</option>
+                <option>Иордания</option>
+                <option>Ирак</option>
+                <option>Иран</option>
+                <option>Ирландия</option>
+                <option>Исландия</option>
+                <option>Испания</option>
+                <option>Италия</option>
+                <option>Йемен</option>
+                <option>Кабо-Верде</option>
+                <option>Казахстан</option>
+                <option>Камбоджа</option>
+                <option>Камерун</option>
+                <option>Канада</option>
+                <option>Катар</option>
+                <option>Кения</option>
+                <option>Кипр</option>
+                <option>Кирибати</option>
+                <option>Китай</option>
+                <option>Колумбия</option>
+                <option>Коморы</option>
+                <option>Республика Конго</option>
+                <option>ДР Конго</option>
+                <option>КНДР</option>
+                <option>Корея</option>
+                <option>Коста-Рика</option>
+                <option>Кот-д’Ивуар</option>
+                <option>Куба</option>
+                <option>Кувейт</option>
+                <option>Кыргызстан</option>
+                <option>Лаос</option>
+                <option>Латвия</option>
+                <option>Лесото</option>
+                <option>Либерия</option>
+                <option>Ливан</option>
+                <option>Ливия</option>
+                <option>Литва</option>
+                <option>Лихтенштейн</option>
+                <option>Люксембург</option>
+                <option>Маврикий</option>
+                <option>Мавритания</option>
+                <option>Мадагаскар</option>
+                <option>Малави</option>
+                <option>Малайзия</option>
+                <option>Мали</option>
+                <option>Мальдивы</option>
+                <option>Мальта</option>
+                <option>Марокко</option>
+                <option>Маршалловы Острова</option>
+                <option>Мексика</option>
+                <option>Микронезия</option>
+                <option>Мозамбик</option>
+                <option>Молдавия</option>
+                <option>Монако</option>
+                <option>Монголия</option>
+                <option>Мьянма</option>
+                <option>Намибия</option>
+                <option>Науру</option>
+                <option>Непал</option>
+                <option>Нигер</option>
+                <option>Нигерия</option>
+                <option>Нидерланды</option>
+                <option>Никарагуа</option>
+                <option>Новая Зеландия</option>
+                <option>Норвегия</option>
+                <option>ОАЭ</option>
+                <option>Оман</option>
+                <option>Пакистан</option>
+                <option>Палау</option>
+                <option>Панама</option>
+                <option>Папуа — Новая Гвинея</option>
+                <option>Парагвай</option>
+                <option>Перу</option>
+                <option>Польша</option>
+                <option>Португалия</option>
+                <option>Россия</option>
+                <option>Руанда</option>
+                <option>Румыния</option>
+                <option>Сальвадор</option>
+                <option>Самоа</option>
+                <option>Сан-Марино</option>
+                <option>Сан-Томе и Принсипи</option>
+                <option>Саудовская Аравия</option>
+                <option>Северная Македония</option>
+                <option>Сейшелы</option>
+                <option>Сенегал</option>
+                <option>Сент-Винсент и Гренадины</option>
+                <option>Сент-Китс и Невис</option>
+                <option>Сент-Люсия</option>
+                <option>Сербия</option>
+                <option>Сингапур</option>
+                <option>Сирия</option>
+                <option>Словакия</option>
+                <option>Словения</option>
+                <option>США</option>
+                <option>Соломоновы Острова</option>
+                <option>Сомали</option>
+                <option>Судан</option>
+                <option>Суринам</option>
+                <option>Сьерра-Леоне</option>
+                <option>Таджикистан</option>
+                <option>Таиланд</option>
+                <option>Танзания</option>
+                <option>Того</option>
+                <option>Тонга</option>
+                <option>Тринидад и Тобаго</option>
+                <option>Тувалу</option>
+                <option>Тунис</option>
+                <option>Туркменистан</option>
+                <option>Турция</option>
+                <option>Уганда</option>
+                <option>Узбекистан</option>
+                <option>Украина</option>
+                <option>Уругвай</option>
+                <option>Фиджи</option>
+                <option>Филиппины</option>
+                <option>Финляндия</option>
+                <option>Франция</option>
+                <option>Хорватия</option>
+                <option>ЦАР</option>
+                <option>Чад</option>
+                <option>Черногория</option>
+                <option>Чехия</option>
+                <option>Чили</option>
+                <option>Швейцария</option>
+                <option>Швеция</option>
+                <option>Шри-Ланка</option>
+                <option>Эквадор</option>
+                <option>Экваториальная Гвинея</option>
+                <option>Эритрея</option>
+                <option>Эсватини</option>
+                <option>Эстония</option>
+                <option>Эфиопия</option>
+                <option>ЮАР</option>
+                <option>Южный Судан</option>
+                <option>Ямайка</option>
+                <option>Япония</option>
+              </datalist>
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">Регион, область</label>
+              <input type="text" id="pacient-region" name="pacient-region" placeholder="Московская область"
+                class="form__input form__input-text _req2">
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">Населенный пункт</label>
+              <input type="text" id="pacient-city" name="pacient-city" placeholder="Москва"
+                class="form__input form__input-text _req2">
+            </li>
+            <li class="form__list-item">
+              <label class="form__label">Опишите НР</label>
+              <textarea placeholder="Опишите ситуацию, симптомы." class="form__input form__input-textarea _req2"
+                id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr"></textarea>
+            </li>
+          </ul>
         </div>
 
-        <div class="form__accordion">Шаг 4. Описание НР</div>
-        <div class="form__content-container form__accordion-content form__specialist-status-container-4">
-          <div class="form__accordion-block">
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Опишите НР *</label><textarea
-                  class="form__input form__input-textarea _req1" name="spec-pacient-unwanted-reaction-desc"></textarea>
-              </li>
-            </ul>
-            <ul class="form__list reset-list">
-              <li class="form__list-item"><label class="form__label">Дата начала НР</label>
-                <input type="date" class="form__input form__input-text"
-                  name="spec-pacient-unwanted-reaction-start-date">
-              </li>
-              <li class="form__list-item"><label class="form__label">Дата окончания НР</label>
-                <input type="date" class="form__input form__input-text" name="spec-pacient-unwanted-reaction-end-date">
-              </li>
-              <li class="form__list-item"><label class="form__label">Исход НР</label>
-                <select class="form__input form__input-select" name="spec-pacient-unwanted-reaction-result">
-                  <option value="Выздоровление без последствий">Выздоровление без последствий</option>
-                  <option value="Выздоровление с последствиями">Выздоровление с последствиями</option>
-                  <option value="Улучшение состояния">Улучшение состояния</option>
-                  <option value="Состояние без изменений">Состояние без изменений</option>
-                  <option value="Смерть">Смерть</option>
-                  <option value="Неизвестно">Неизвестно</option>
-                </select>
-              </li>
-            </ul>
-          </div>
+        <p class="form__checkbox-mistake-text" id="pacient-mistake-text">Вы не согласились с правилами сайта.</p>
+
+        <div class="form__agree-container">
+          <label class="form__checkbox-label" for="pacient-checkbox-1">
+            <input class="form__checkbox _req2" id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1" checked>
+            <span class="form__checkbox-text">Я
+              ознакомился и согласен с
+              <a class="quiz__link form__agree-link" href="">Условиями использования
+                Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
+                Сайта</a>
+            </span>
+          </label>
+          <label class="form__checkbox-label" for="pacient-checkbox-2">
+            <input class="form__checkbox _req2" id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2" checked>
+            <span class="form__checkbox-text">
+              Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
+                данных</a>
+            </span>
+          </label>
         </div>
+
+        <button type="submit" class="form__button" id="pacient-button">Отправить</button>
+
+      </form>
+      <h3 class="quiz__subtitle">Или свяжитесь с нами по:</h3>
+      <div class="quiz__contacts-container">
+        <p class="quiz__contacts-text">Электронная почта: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
+            href="mailto:info@sipeconsult.com">info@sipeconsult.com</a></p>
+        <p class="quiz__contacts-text">Почта: <span class="quiz__contacts-info">125476, г. Москва, ул. Василия
+            Петушкова,
+            д.
+            27</span></p>
+        <p class="quiz__contacts-text">Телефон: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
+            href="tel:+7 (495) 414 41 94">+7 (495) 414-41-94</a></p>
       </div>
-
-      <p class="form__checkbox-mistake-text" id="specialist-mistake-text">Вы не согласились с правилами сайта.</p>
-
-      <div class="form__agree-container">
-        <label class="form__checkbox-label" for="specialist-checkbox-1"><input class="form__checkbox"
-            id="specialist-checkbox-1" type="checkbox" name="specialist-checkbox-1" checked><span
-            class="form__checkbox-text">Я ознакомился и
-            согласен с <a class="quiz__link form__agree-link" href="">Условиями использования
-              Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
-              Сайта</a></span></label>
-        <label class="form__checkbox-label" for="specialist-checkbox-2"><input class="form__checkbox"
-            id="specialist-checkbox-2" type="checkbox" name="specialist-checkbox-2" checked><span
-            class="form__checkbox-text">
-            Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
-              данных</a></span></label>
-      </div>
-
-      <button type="submit" class="form__button" id="specialist-button">Отправить</button>
-
-    </form>
-
-    <form method="POST" class="form " id="pacient-form">
-      <div class="form__content-container form__pacient-status-container" id="pacient-container">
-        <ul class="form__list reset-list">
-          <li class="form__list-item">
-            <label class="form__label">Ваше имя</label>
-            <input type="text" id="pacient-name" name="pacient-name" placeholder="Евгений"
-              class="form__input form__input-text _req2">
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">E-mail</label>
-            <input type="text" id="pacient-mail" name="pacient-mail" placeholder="forexample@gmail.com"
-              class="form__input form__input-text _email2 _req2">
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">Телефон</label>
-            <input type="text" id="pacient-phone" name="pacient-phone" placeholder="+7 (495) 588-42-88"
-              class="form__input form__input-text form__input-text-phone _req2" data-mask="phone">
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">Кем вы являетесь</label>
-            <select class="form__input form__input-select _req2" id="pacient-status" name="pacient-status">
-              <option value="Пациент">Пациент</option>
-              <option value="Родственник пациента">Родственник пациента</option>
-              <option value="Посетитель">Посетитель</option>
-              <option value="Другое">Другое</option>
-            </select>
-          </li>
-        </ul>
-        <ul class="form__list reset-list">
-          <li class="form__list-item">
-            <label class="form__label">Страна</label>
-            <input type="text" id="pacient-country" name="pacient-country" placeholder="Россия"
-              class="form__input form__input-text _req2" list="country">
-            <datalist id="country">
-              <option>Австралия</option>
-              <option>Австрия</option>
-              <option>Азербайджан</option>
-              <option>Албания</option>
-              <option>Алжир</option>
-              <option>Ангола</option>
-              <option>Андорра</option>
-              <option>Антигуа и Барбуда</option>
-              <option>Аргентина</option>
-              <option>Армения</option>
-              <option>Афганистан</option>
-              <option>Багамы</option>
-              <option>Бангладеш</option>
-              <option>Барбадос</option>
-              <option>Бахрейн</option>
-              <option>Белиз</option>
-              <option>Беларусь</option>
-              <option>Бельгия</option>
-              <option>Бенин</option>
-              <option>Болгария</option>
-              <option>Боливия</option>
-              <option>Босния и Герцеговина</option>
-              <option>Ботсвана</option>
-              <option>Бразилия</option>
-              <option>Бруней</option>
-              <option>Буркина-Фасо</option>
-              <option>Бурунди</option>
-              <option>Бутан</option>
-              <option>Вануату</option>
-              <option>Великобритания</option>
-              <option>Венгрия</option>
-              <option>Венесуэла</option>
-              <option>Восточный Тимор</option>
-              <option>Вьетнам</option>
-              <option>Габон</option>
-              <option>Гаити</option>
-              <option>Гайана</option>
-              <option>Гамбия</option>
-              <option>Гана</option>
-              <option>Гватемала</option>
-              <option>Гвинея</option>
-              <option>Гвинея-Бисау</option>
-              <option>Германия</option>
-              <option>Гондурас</option>
-              <option>Гренада</option>
-              <option>Греция</option>
-              <option>Грузия</option>
-              <option>Дания</option>
-              <option>Джибути</option>
-              <option>Доминика</option>
-              <option>Доминикана</option>
-              <option>Египет</option>
-              <option>Замбия</option>
-              <option>Зимбабве</option>
-              <option>Израиль</option>
-              <option>Индия</option>
-              <option>Индонезия</option>
-              <option>Иордания</option>
-              <option>Ирак</option>
-              <option>Иран</option>
-              <option>Ирландия</option>
-              <option>Исландия</option>
-              <option>Испания</option>
-              <option>Италия</option>
-              <option>Йемен</option>
-              <option>Кабо-Верде</option>
-              <option>Казахстан</option>
-              <option>Камбоджа</option>
-              <option>Камерун</option>
-              <option>Канада</option>
-              <option>Катар</option>
-              <option>Кения</option>
-              <option>Кипр</option>
-              <option>Кирибати</option>
-              <option>Китай</option>
-              <option>Колумбия</option>
-              <option>Коморы</option>
-              <option>Республика Конго</option>
-              <option>ДР Конго</option>
-              <option>КНДР</option>
-              <option>Корея</option>
-              <option>Коста-Рика</option>
-              <option>Кот-д’Ивуар</option>
-              <option>Куба</option>
-              <option>Кувейт</option>
-              <option>Кыргызстан</option>
-              <option>Лаос</option>
-              <option>Латвия</option>
-              <option>Лесото</option>
-              <option>Либерия</option>
-              <option>Ливан</option>
-              <option>Ливия</option>
-              <option>Литва</option>
-              <option>Лихтенштейн</option>
-              <option>Люксембург</option>
-              <option>Маврикий</option>
-              <option>Мавритания</option>
-              <option>Мадагаскар</option>
-              <option>Малави</option>
-              <option>Малайзия</option>
-              <option>Мали</option>
-              <option>Мальдивы</option>
-              <option>Мальта</option>
-              <option>Марокко</option>
-              <option>Маршалловы Острова</option>
-              <option>Мексика</option>
-              <option>Микронезия</option>
-              <option>Мозамбик</option>
-              <option>Молдавия</option>
-              <option>Монако</option>
-              <option>Монголия</option>
-              <option>Мьянма</option>
-              <option>Намибия</option>
-              <option>Науру</option>
-              <option>Непал</option>
-              <option>Нигер</option>
-              <option>Нигерия</option>
-              <option>Нидерланды</option>
-              <option>Никарагуа</option>
-              <option>Новая Зеландия</option>
-              <option>Норвегия</option>
-              <option>ОАЭ</option>
-              <option>Оман</option>
-              <option>Пакистан</option>
-              <option>Палау</option>
-              <option>Панама</option>
-              <option>Папуа — Новая Гвинея</option>
-              <option>Парагвай</option>
-              <option>Перу</option>
-              <option>Польша</option>
-              <option>Португалия</option>
-              <option>Россия</option>
-              <option>Руанда</option>
-              <option>Румыния</option>
-              <option>Сальвадор</option>
-              <option>Самоа</option>
-              <option>Сан-Марино</option>
-              <option>Сан-Томе и Принсипи</option>
-              <option>Саудовская Аравия</option>
-              <option>Северная Македония</option>
-              <option>Сейшелы</option>
-              <option>Сенегал</option>
-              <option>Сент-Винсент и Гренадины</option>
-              <option>Сент-Китс и Невис</option>
-              <option>Сент-Люсия</option>
-              <option>Сербия</option>
-              <option>Сингапур</option>
-              <option>Сирия</option>
-              <option>Словакия</option>
-              <option>Словения</option>
-              <option>США</option>
-              <option>Соломоновы Острова</option>
-              <option>Сомали</option>
-              <option>Судан</option>
-              <option>Суринам</option>
-              <option>Сьерра-Леоне</option>
-              <option>Таджикистан</option>
-              <option>Таиланд</option>
-              <option>Танзания</option>
-              <option>Того</option>
-              <option>Тонга</option>
-              <option>Тринидад и Тобаго</option>
-              <option>Тувалу</option>
-              <option>Тунис</option>
-              <option>Туркменистан</option>
-              <option>Турция</option>
-              <option>Уганда</option>
-              <option>Узбекистан</option>
-              <option>Украина</option>
-              <option>Уругвай</option>
-              <option>Фиджи</option>
-              <option>Филиппины</option>
-              <option>Финляндия</option>
-              <option>Франция</option>
-              <option>Хорватия</option>
-              <option>ЦАР</option>
-              <option>Чад</option>
-              <option>Черногория</option>
-              <option>Чехия</option>
-              <option>Чили</option>
-              <option>Швейцария</option>
-              <option>Швеция</option>
-              <option>Шри-Ланка</option>
-              <option>Эквадор</option>
-              <option>Экваториальная Гвинея</option>
-              <option>Эритрея</option>
-              <option>Эсватини</option>
-              <option>Эстония</option>
-              <option>Эфиопия</option>
-              <option>ЮАР</option>
-              <option>Южный Судан</option>
-              <option>Ямайка</option>
-              <option>Япония</option>
-            </datalist>
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">Регион, область</label>
-            <input type="text" id="pacient-region" name="pacient-region" placeholder="Московская область"
-              class="form__input form__input-text _req2">
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">Населенный пункт</label>
-            <input type="text" id="pacient-city" name="pacient-city" placeholder="Москва"
-              class="form__input form__input-text _req2">
-          </li>
-          <li class="form__list-item">
-            <label class="form__label">Опишите НР</label>
-            <textarea placeholder="Опишите ситуацию, симптомы." class="form__input form__input-textarea _req2"
-              id="pacient-unwanted-reaction-descr" name="pacient-unwanted-reaction-descr"></textarea>
-          </li>
-        </ul>
-      </div>
-
-      <p class="form__checkbox-mistake-text" id="pacient-mistake-text">Вы не согласились с правилами сайта.</p>
-
-      <div class="form__agree-container">
-        <label class="form__checkbox-label" for="pacient-checkbox-1">
-          <input class="form__checkbox _req2" id="pacient-checkbox-1" type="checkbox" name="pacient-agree-1" checked>
-          <span class="form__checkbox-text">Я
-            ознакомился и согласен с
-            <a class="quiz__link form__agree-link" href="">Условиями использования
-              Сервиса</a> и <a class="quiz__link form__agree-link" href="">Условиями использования
-              Сайта</a>
-          </span>
-        </label>
-        <label class="form__checkbox-label" for="pacient-checkbox-2">
-          <input class="form__checkbox _req2" id="pacient-checkbox-2" type="checkbox" name="pacient-agree-2" checked>
-          <span class="form__checkbox-text">
-            Я согласен на <a class="quiz__link form__agree-link" href="">Обработку персональных
-              данных</a>
-          </span>
-        </label>
-      </div>
-
-      <button type="submit" class="form__button" id="pacient-button">Отправить</button>
-
-    </form>
-    <h3 class="quiz__subtitle">Или свяжитесь с нами по:</h3>
-    <div class="quiz__contacts-container">
-      <p class="quiz__contacts-text">Электронная почта: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
-          href="mailto:info@sipeconsult.com">info@sipeconsult.com</a></p>
-      <p class="quiz__contacts-text">Почта: <span class="quiz__contacts-info">125476, г. Москва, ул. Василия Петушкова,
-          д.
-          27</span></p>
-      <p class="quiz__contacts-text">Телефон: <a class="quiz__contacts-info quiz__link quiz__contacts-link"
-          href="tel:+7 (495) 414 41 94">+7 (495) 414-41-94</a></p>
     </div>
   </div>
-
-  <script src="./ajaxSpecialist.js"></script>
-  <script src="./ajaxPacient.js"></script>
+  <script src="ajaxSpecialist.js"></script>
+  <script src="ajaxPacient.js"></script>
   <script>
     // Открытие аккордиона
     document.querySelectorAll('.form__accordion').forEach((el) => {
@@ -622,14 +643,32 @@
       if (specRadio.checked) {
         specForm.style.display = "block";
         pacientForm.style.display = "none";
+        pacientRadio.checked = false;
       }
     });
+
     pacientRadio.addEventListener("change", () => {
       if (pacientRadio.checked) {
         specForm.style.display = "none";
         pacientForm.style.display = "block";
+        specRadio.checked = false;
       }
     });
+
+    pacientRadio.addEventListener("change", () => {
+      if (pacientRadio.checked === false && specRadio.checked === false) {
+        specForm.style.display = "none";
+        pacientForm.style.display = "none";
+      }
+    });
+
+    specRadio.addEventListener("change", () => {
+      if (pacientRadio.checked === false && specRadio.checked === false) {
+        specForm.style.display = "none";
+        pacientForm.style.display = "none";
+      }
+    });
+
     // Деактивация полей в соответствии с полом пациента
     const pacientSexFemale = document.querySelector("#spec-pacient-female");
     const pacientSexMale = document.querySelector("#spec-pacient-male");
